@@ -4,7 +4,7 @@
 <html class="h-100">
 
 <head>
-    <title>CodeStar Blog</title>
+    <title>Travel Blog</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -24,10 +24,9 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-sky">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></span></a>
+            <a class="navbar-brand text-white" href="{% url 'home' %}"><span>Travel</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,24 +34,27 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white aria-current="page" href="{% url 'create_post' %}">Create Post</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link text-white" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link text-white" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
 
                 </ul>
-                <span class="navbar-text text-muted">
-                    adventures of a software developer
+                <span class="navbar-text text-white">
+                    Discover the most beautiful cities
                 </span>
             </div>
         </div>
@@ -78,12 +80,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Code Instituters</p>
-        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+    <footer class="footer mt-auto py-3 bg-sky">
+        <p class="m-0 text-center text-white">Copuright Travel</p>
+        <p class="social-network m-0 text-center text-white">Follow us:
+            <a href="https://www.facebook.com" target="_blank" rel="noopener"
+                aria-label="visit our facebook page(opens in new tab"><i class="fab fa-facebook-square ms-3"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener"
+            aria-label="visit our twitter page(opens in new tab"><i class="fab fa-twitter-square ms-3"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener"
+            aria-label="visit our instagram page(opens in new tab"><i class="fab fa-instagram-square ms-3"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener"
+            aria-label="visit our youtube page(opens in new tab"><i class="fab fa-youtube-square ms-3"></i></p></a>
     </footer>
     <script>
         setTimeout(function () {

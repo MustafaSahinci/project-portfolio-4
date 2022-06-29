@@ -12,6 +12,11 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
+class CreatePost(generic.ListView):
+    model = Post
+    template_name = "create_post.html"
+
+
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
