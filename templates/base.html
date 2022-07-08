@@ -24,7 +24,7 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-sky">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-sky">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="{% url 'home' %}"><span>Travel</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -62,7 +62,49 @@
                 </span>
             </div>
         </div>
+    </nav> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="{% url 'home' %}">Travel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog' %}">Blog</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'create_post' %}">Create
+                            Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="{% url 'account_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="{% url 'account_signup' %}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="{% url 'account_login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
     </nav>
+
+    <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -84,18 +126,42 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 bg-sky">
-        <p class="m-0 text-center text-white">Copuright Travel</p>
-        <p class="social-network m-0 text-center text-white">Follow us:
-            <a href="https://www.facebook.com" target="_blank" rel="noopener"
-                aria-label="visit our facebook page(opens in new tab"><i class="fab fa-facebook-square ms-3"></i></a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener"
-                aria-label="visit our twitter page(opens in new tab"><i class="fab fa-twitter-square ms-3"></i></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener"
-                aria-label="visit our instagram page(opens in new tab"><i class="fab fa-instagram-square ms-3"></i></a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener"
-                aria-label="visit our youtube page(opens in new tab"><i class="fab fa-youtube-square ms-3"></i></p></a>
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <script>
         setTimeout(function () {
             let messages = document.getElementById('msg');
