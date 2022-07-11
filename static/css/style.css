@@ -65,12 +65,10 @@ body {
     background-color: #0f9dd7;
     color: white;
     position: relative;
-}
+} */
 
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-    height: 33vh;
+/* .masthead-image {
+    width: 100%;
 } */
 
 /* .masthead-image:after {
@@ -97,13 +95,12 @@ body {
     color: #E84610;
 }
 
-.post-title {
+/* .post-title {
     margin-top: 20%;
     margin-left: 5%;
-}
+} */
 
 .post-subtitle {
-    margin-left: 5%;
     color: lightgray;
 }
 

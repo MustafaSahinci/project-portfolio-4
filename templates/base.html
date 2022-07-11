@@ -92,7 +92,26 @@
         </div>
     </nav>
 
-    <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c')">
+    {% if url.is_post_detail.html %}
+    <header class="masthead masthead-image" style="background-image: url(' {{ post.featured_image.url }}')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>{{ post.title }}</h1>
+                        <h2>{{ post.excerpt }}</h2>
+                        <span class="meta">
+                            <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+
+    <!-- <header class="masthead"
+        style="background-image: url('https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -103,7 +122,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <div class="container">
         <div class="row">

@@ -1,29 +1,42 @@
 {% extends 'base.html' %} {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="masthead">
+<!-- <div class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-4 masthead-text">
+            <div class="col-md-4 masthead-text"> -->
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
+                <!-- <h1 class="post-title">{{ post.title }}</h1> -->
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-4 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <!-- <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p> -->
+            <!-- </div>
+            <div class="d-none d-md-block col-md-4 masthead-image"> -->
+                <!-- The featured image URL goes in the src attribute
+                {% if "placeholder" in post.featured_image.url %} -->
+                <!-- <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
-            <div class="d-none d-md-block col-md-4 masthead-image">
-                <img src="https://res.cloudinary.com/dxq7tud8l/image/upload/v1657018090/travel1_e84k3c.jpg" width="100%">
+        </div>
+    </div>
+</div> -->
+
+<!-- <header class="masthead masthead-image" style="background-image: url(' {{ post.featured_image.url }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1>{{ post.title }}</h1>
+                    <h2>{{ post.excerpt }}</h2>
+                    <span class="meta">
+                        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</header> -->
 
 <div class="container">
     <div class="row">
