@@ -14,6 +14,11 @@ class PostList(generic.ListView):
 
 class CreatePost(generic.ListView):
     model = Post
+    list_display = ('title', 'slug', 'status', 'created_on')
+    search_fields = ['title', 'content']
+    list_filter = ('status', 'created_on')
+    prepopulated_fields = {'slug': ('title',)}
+    summernote_fields = ('content',)
     template_name = "create_post.html"
 
 

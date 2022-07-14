@@ -4,4 +4,12 @@
 
 {% include "includes/header.html" %}
 
+{% load crispy_forms_tags %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success">Save person</button>
+</form>
+
 {%endblock%}
