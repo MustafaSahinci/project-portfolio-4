@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -14,12 +14,15 @@ class PostList(generic.ListView):
 
 class CreatePost(generic.ListView):
     model = Post
-    list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title', 'content']
-    list_filter = ('status', 'created_on')
-    prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('content',)
-    template_name = "create_post.html"
+    template_name = "post_create.html"
+    def signup(request):
+        if request.method == 'POST':
+            form = PostForm(request.POST)
+            if form.is_valid():
+                pass
+        else:
+            form = PostForm()
+        return render(request, 'post_create.html', {'form': form})
 
 
 class Home(generic.ListView):

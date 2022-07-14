@@ -6,10 +6,12 @@
 
 {% load crispy_forms_tags %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit" class="btn btn-success">Save person</button>
-</form>
 
+<h1>Jemoeder</h1>
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit">Sign up</button>
+</form>
 {%endblock%}
