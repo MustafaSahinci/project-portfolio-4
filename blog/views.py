@@ -1,32 +1,37 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
+from django.views.generic import (
+    View,
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, PostForm
 
 
-class PostList(generic.ListView):
+class PostList(ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog.html"
     paginate_by = 6
 
 
-class CreatePost(generic.ListView):
+class CreatePost(CreateView):
     model = Post
+    form_class = PostForm
     template_name = "post_create.html"
-    def signup(request):
-        if request.method == 'POST':
-            form = PostForm(request.POST)
-            if form.is_valid():
-                pass
-        else:
-            form = PostForm()
-        return render(request, 'post_create.html', {'form': form})
+
+    def form_valid(self, form):
+        """Function to set signed in user as author of form to post"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
-class Home(generic.ListView):
-    model = Post
+class Home(TemplateView):
     template_name = "index.html"
 
 

@@ -1,6 +1,5 @@
-from .models import Comment
+from .models import Comment, Post
 from django import forms
-from .models import Post
 
 
 class CommentForm(forms.ModelForm):
@@ -12,6 +11,5 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title',)
-
-
+        fields = ('title','slug')
+        prepopulated_fields = {'slug': ('title',)}
