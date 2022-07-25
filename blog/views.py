@@ -25,10 +25,22 @@ class CreatePost(CreateView):
     form_class = PostForm
     template_name = "post_create.html"
 
-    def form_valid(self, form):
-        """Function to set signed in user as author of form to post"""
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    def new_post(request, self):
+        submitted = False
+        if request.method == "POST":
+            form_class = PostForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect("blog.html")
+        else:
+            form_class = PostForm
+            if submitted in request.Get:
+                submitted = True
+
+    # def form_valid(self, form):
+    #     """Function to set signed in user as author of form to post"""
+    #     form.instance.author = self.request.user
+    #     return super().form_valid(form)
 
 
 class Home(TemplateView):
