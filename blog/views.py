@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import (
     View,
     TemplateView,
@@ -13,6 +13,26 @@ from .models import Post
 from .forms import CommentForm, PostForm
 
 
+def post_create(request):
+
+    post_form = PostForm(request.POST or None, request.FILES or None)
+    context = {
+        'post_form': post_form,
+    }
+
+    if request.method == "POST":
+        post_form = PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            post_form = post_form.save(commit=False)
+            post_form.author = request.user
+            post_form.status = 1
+            post_form.save()
+            return redirect('blog')
+    else:
+        post_form = PostForm()
+    return render(request, 'post_create.html', context)
+
+
 class PostList(ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -20,22 +40,25 @@ class PostList(ListView):
     paginate_by = 6
 
 
-class CreatePost(CreateView):
-    model = Post
-    form_class = PostForm
-    template_name = "post_create.html"
+# class CreatePost(CreateView):
+#     model = Post
+#     form_class = PostForm
+#     template_name = "post_create.html"
 
-    def new_post(request, self):
-        submitted = False
-        if request.method == "POST":
-            form_class = PostForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return HttpResponseRedirect("blog.html")
-        else:
-            form_class = PostForm
-            if submitted in request.Get:
-                submitted = True
+#     def new_post(request, self):
+#         # submitted = False
+#         if request.method == "POST":
+#             form_class = PostForm(request.POST)
+#             if form.is_valid():
+#                 form.save()
+#         context = {'form_class':form_class}
+#         return render(request, 'post_create.html', context)
+        #     return render(request, 'blog.html')
+        # else:
+        #     form_class = PostForm
+        #     if submitted in request.Get:
+        #         submitted = True
+        #     return render(request, 'blog.html')
 
     # def form_valid(self, form):
     #     """Function to set signed in user as author of form to post"""

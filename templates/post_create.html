@@ -11,7 +11,7 @@
 
 <form action="" method=POST>
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
+    {{ post_form | crispy | safe }}
+    <input type="submit" value="submit">
 </form>
 {%endblock%}
