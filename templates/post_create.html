@@ -7,11 +7,12 @@
 {% load crispy_forms_tags %}
 
 
-<h1>Jemoeder</h1>
-
-<form action="" method=POST>
-    {% csrf_token %}
-    {{ post_form | crispy | safe }}
-    <input type="submit" value="submit">
-</form>
+<center>
+    <h1>Create Your Own Post</h1>
+    <form action="" method=POST>
+        {% csrf_token %}
+        {{ post_form | crispy | safe }}
+        <input type="submit" value="submit">
+    </form>
+</center>
 {%endblock%}

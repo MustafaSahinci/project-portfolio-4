@@ -1,5 +1,6 @@
-from .models import Comment, Post
+from django_summernote.widgets import SummernoteInplaceWidget, SummernoteWidget
 from django import forms
+from .models import Comment, Post
 
 
 class CommentForm(forms.ModelForm):
@@ -12,9 +13,12 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'featured_image', 'excerpt', 'content')
+        widgets = {
+            'content': SummernoteWidget(),
+        }
     
-    # def __init__(self, *args, **kwargs):
-    #     super(PostForm, self).__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
 
     # def clean_servings(self):
     #     """

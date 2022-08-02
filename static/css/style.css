@@ -270,6 +270,10 @@ a:hover {
     color: black;
 }
 
+.form-group {
+    width: 43%;
+}
+
 
 
 @media (min-width: 992px) {
