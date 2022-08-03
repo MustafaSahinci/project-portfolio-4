@@ -274,6 +274,64 @@ a:hover {
     width: 43%;
 }
 
+.section-headline h2 {
+    display: inline-block;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 70px;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.section-headline h2::after {
+    border: 1px solid #333;
+    bottom: -20px;
+    content: "";
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    width: 40%;
+}
+
+.section-headline h2 {
+    font-size: 4rem;
+}
+
+.well-middle .single-well {
+    margin-top: 30px;
+}
+
+.single-well>a {
+    display: block;
+}
+
+.sec-head {
+    color: black;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-p1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.about-li {
+    font-weight: bold;
+}
+
+
 
 
 @media (min-width: 992px) {
