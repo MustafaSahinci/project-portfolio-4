@@ -90,8 +90,7 @@ body {
     color: #445261;
 }
 
-.post-link:hover,
-.page-link {
+.post-link:hover,{
     color: #E84610;
 }
 
