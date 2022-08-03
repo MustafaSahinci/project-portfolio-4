@@ -318,7 +318,8 @@ a:hover {
 
 img {
     max-width: 100%;
-    height: auto;
+    width: 612px;
+    height: 320px;
 }
 
 .about-p1 {
