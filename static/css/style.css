@@ -90,7 +90,8 @@ body {
     color: #445261;
 }
 
-.post-link:hover,{
+.post-link:hover,
+    {
     color: #E84610;
 }
 
@@ -331,7 +332,23 @@ img {
     font-weight: bold;
 }
 
+.features-icons {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
 
+.features-icons-item {
+    max-width: 20rem;
+}
+
+.features-icons-icon {
+    height: 7rem;
+}
+
+.big-i{
+    font-size: 4.5rem;
+    color: #0f9dd7;
+}
 
 
 @media (min-width: 992px) {
