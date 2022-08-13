@@ -33,6 +33,32 @@ def post_create(request):
     return render(request, 'post_create.html', context)
 
 
+def post_edit(request, slug):
+
+    post = get_object_or_404(Post, slug=slug)
+    post_form = PostForm(request.POST or None, instance=post)
+    context = {
+        "post_form": post_form,
+        "post": post
+    }
+    if request.method == "POST":
+        post_form = PostForm(request.POST, request.FILES, instance=post)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('blog')
+    else:
+        post_form = PostForm(instance=post)
+    return render(request, "post_edit.html", context)
+
+
+def post_delete(request, slug):
+    post = Post.objects.get(slug=slug)
+    post.delete()
+    return render(request, "post_delete.html")
+
+
 class PostList(ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -53,12 +79,12 @@ class PostList(ListView):
 #                 form.save()
 #         context = {'form_class':form_class}
 #         return render(request, 'post_create.html', context)
-        #     return render(request, 'blog.html')
-        # else:
-        #     form_class = PostForm
-        #     if submitted in request.Get:
-        #         submitted = True
-        #     return render(request, 'blog.html')
+    #     return render(request, 'blog.html')
+    # else:
+    #     form_class = PostForm
+    #     if submitted in request.Get:
+    #         submitted = True
+    #     return render(request, 'blog.html')
 
     # def form_valid(self, form):
     #     """Function to set signed in user as author of form to post"""

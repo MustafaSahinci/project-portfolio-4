@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated %}
+<center>
+    <h1>Edit Your Post</h1>
+    <form action="" method=POST>
+        {% csrf_token %}
+        {{ post_form | crispy | safe }}
+        <br>
+        <input class="btn btn-primary btn-large bg-sky" type="submit" value="submit">
+    </form>
+</center>
+<br>
+{% else %}
+<center>
+    <h1>You are not Logged in</h1 </center>
+    <br>
+    {% endif %}
+
+    {%endblock%}
