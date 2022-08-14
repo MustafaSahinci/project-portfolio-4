@@ -171,10 +171,6 @@ footer {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-#mainNav .navbar-brand {
-    font-weight: 800;
-}
-
 .navbar {
     position: relative;
     display: flex;
@@ -342,10 +338,27 @@ img {
 }
 
 .features-icons-icon {
-    height: 7rem;
+    background-image: url("https://res.cloudinary.com/dxq7tud8l/image/upload/v1660438348/kapadokya_pflx3l.jpg");
+    height: 15rem;
+    background-size: cover;
+    margin-bottom: 2rem;
 }
 
-.big-i{
+.features-icons-icon-location {
+    background-image: url("https://res.cloudinary.com/dxq7tud8l/image/upload/v1660439510/location1_jmchtc.png");
+    height: 15rem;
+    background-size: cover;
+    margin-bottom: 2rem;
+}
+
+.features-icons-icon-food {
+    background-image: url("https://res.cloudinary.com/dxq7tud8l/image/upload/v1660440037/trfood_ail1f3.jpg");
+    height: 15rem;
+    background-size: cover;
+    margin-bottom: 2rem;
+}
+
+.big-i {
     font-size: 4.5rem;
     color: #0f9dd7;
 }
@@ -368,10 +381,20 @@ img {
 
     #mainNav .navbar-brand {
         color: #fff;
+        font-weight: 800;
     }
 
     #mainNav .navbar-brand:hover {
         color: #0f9dd7;
+    }
+
+    #mainNav .navbar-user {
+        color: #0f9dd7;
+        font-weight: 800;
+    }
+
+    #mainNav .navbar-user:hover {
+        color: #fff;
     }
 
     #mainNav .navbar-nav>li.nav-item>a.nav-link {

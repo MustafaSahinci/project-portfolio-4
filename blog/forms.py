@@ -14,7 +14,10 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'featured_image', 'excerpt', 'content')
         widgets = {
-            'content': SummernoteWidget(),
+            'title': forms.TextInput(attrs={"class": "form-control"}),
+            'featured_image': forms.FileInput(attrs={"class": "form-control"}),
+            'excerpt': forms.TextInput(attrs={"class": "form-control"}),
+            'content': forms.Textarea(attrs={"class": "form-control"}),
         }
     
     def __init__(self, *args, **kwargs):
