@@ -38,6 +38,10 @@ body {
     position: relative;
 }
 
+.card-img-top {
+    border-radius: 1rem;
+}
+
 .image-flash {
     position: absolute;
     bottom: 5%;
@@ -342,6 +346,7 @@ img {
     height: 15rem;
     background-size: cover;
     margin-bottom: 2rem;
+    border-radius: 1rem;
 }
 
 .features-icons-icon-location {
@@ -349,6 +354,7 @@ img {
     height: 15rem;
     background-size: cover;
     margin-bottom: 2rem;
+    border-radius: 1rem;
 }
 
 .features-icons-icon-food {
@@ -356,6 +362,7 @@ img {
     height: 15rem;
     background-size: cover;
     margin-bottom: 2rem;
+    border-radius: 1rem;
 }
 
 .big-i {
