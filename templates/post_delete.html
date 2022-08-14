@@ -9,7 +9,7 @@
 {% if user.is_authenticated %}
 <center>
     <h1>Delete post</h1>
-    <h3>Delete: {{ post.title }} </h3>
+    <h3>Delete: {{ post.title }}</h3>
     <form action="" method=POST>
         {% csrf_token %}
         <br>

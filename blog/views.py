@@ -11,6 +11,7 @@ from django.views.generic import (
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, PostForm
+from django.contrib import messages
 
 
 def post_create(request):
@@ -54,9 +55,16 @@ def post_edit(request, slug):
 
 
 def post_delete(request, slug):
-    post = Post.objects.get(slug=slug)
-    post.delete()
-    return render(request, "post_delete.html")
+    post = get_object_or_404(Post, slug=slug)
+    context = {
+        "post": post
+    }
+    # post = Post.objects.get(Post, slug=slug)
+    if request.method == "POST":
+        post.delete()
+        messages.success(request, "Post successfully deleted!")
+        return redirect('blog')
+    return render(request, "post_delete.html", context)
 
 
 class PostList(ListView):
