@@ -7,6 +7,7 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
+{% if user.id == post.author.id %}
 <center>
     <h1>Edit Your Post</h1>
 </center>
@@ -30,5 +31,11 @@
     <h1>You are not Logged in</h1 </center>
     <br>
     {% endif %}
+    {% else %}
+    <center>
+        <h1>You are not Logged in</h1 </center>
+        <br>
+        {% endif %}
+        {% endif %}
 
-    {%endblock%}
+        {%endblock%}

@@ -7,17 +7,23 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-<center>
-    <h1>Delete post</h1>
-    <h3>Delete: {{ post.title }}</h3>
-    <form action="" method=POST>
-        {% csrf_token %}
+    {% if user.id == post.author.id %}
+        <center>
+            <h1>Delete post</h1>
+            <h3>Delete: {{ post.title }}</h3>
+            <form action="" method=POST>
+                {% csrf_token %}
+                <br>
+                <p>Are you sure?</p>
+                <input class="btn btn-primary btn-large bg-sky" type="submit" value="submit">
+            </form>
+        </center>
         <br>
-        <p>Are you sure?</p>
-        <input class="btn btn-primary btn-large bg-sky" type="submit" value="submit">
-    </form>
-</center>
-<br>
+    {% else %}
+    <center>
+        <h1>You are not Logged in</h1 </center>
+        <br>    
+    {% endif %}
 {% else %}
 <center>
     <h1>You are not Logged in</h1 </center>
