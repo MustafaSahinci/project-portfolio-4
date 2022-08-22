@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.core.paginator import Paginator
 from django.views.generic import (
     View,
     TemplateView,
@@ -9,7 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Category
 from .forms import CommentForm, PostForm
 from django.contrib import messages
 
@@ -107,6 +108,12 @@ class PostList(ListView):
 
 class Home(TemplateView):
     template_name = "index.html"
+
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Category.objects.all
+        context = super(Home, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
 
 
 class PostDetail(View):

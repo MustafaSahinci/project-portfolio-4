@@ -6,6 +6,10 @@
 
 {% if post_category %}
 
+<div class="section-headline text-center">
+    <h2> {{ cats }} </h2>
+</div>
+
 <div class="container-fluid">
     <div class="row">
 
@@ -61,7 +65,7 @@
     {% endif %}
 </div>
 {% else%}
-    <h2>This page doesn't exist</h2>
+<h2 class="text-center">This page doesn't exist</h2>
 {% endif %}
 
 {%endblock%}

@@ -37,6 +37,18 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'home' %}">Home</a></li>
+                    {% if cat_menu %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="{% url 'blog' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Blog
+                        </a>
+                        <ul class="dropdown-menu">
+                          {% for item in cat_menu %}
+                          <a class="dropdown-item" href="{% url 'categories' item %}">{{ item }}</a>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                      {% endif %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog' %}">Blog</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'post_create' %}">Create
