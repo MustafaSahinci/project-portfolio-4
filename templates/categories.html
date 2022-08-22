@@ -4,7 +4,7 @@
 
 {% include "includes/header.html" %}
 
-
+{% if post_category %}
 
 <div class="container-fluid">
     <div class="row">
@@ -12,7 +12,7 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for post in post_list %}
+                {% for post in post_category %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -28,8 +28,9 @@
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2></a>
-                                <p class="card-text">{{ post.excerpt }} - <a class="post-link" href="{% url 'categories' post.category %}"> {{ post.category }} </a></p>
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.excerpt }} - {{ post.category }}</p>
+                            </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
@@ -59,4 +60,8 @@
     </nav>
     {% endif %}
 </div>
+{% else%}
+    <h2>This page doesn't exist</h2>
+{% endif %}
+
 {%endblock%}

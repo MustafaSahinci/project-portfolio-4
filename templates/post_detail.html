@@ -42,10 +42,10 @@
                     {% if user.is_authenticated %}
                         {% if user.id == post.author.id %}
                     <div class="col-1">
-                        <a href="{% url 'post_edit' post.slug  %}">Edit</a>
+                        <a class="post-link" href="{% url 'post_edit' post.slug  %}">Edit</a>
                     </div>
                     <div class="col-1">
-                        <a href="{% url 'post_delete' post.slug  %}">Delete</a>
+                        <a class="post-link" href="{% url 'post_delete' post.slug  %}">Delete</a>
                     </div>
                         {% endif %}
                     {% endif %}

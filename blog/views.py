@@ -67,6 +67,11 @@ def post_delete(request, slug):
     return render(request, "post_delete.html", context)
 
 
+def categories(request, cats):
+    post_category = Post.objects.filter(category=cats)
+    return render(request, "categories.html", {"cats": cats, "post_category":post_category})
+
+
 class PostList(ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
