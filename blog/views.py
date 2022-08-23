@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import (
     View,
     TemplateView,
@@ -69,8 +69,19 @@ def post_delete(request, slug):
 
 
 def categories(request, cats):
-    post_category = Post.objects.filter(category=cats)
-    return render(request, "categories.html", {"cats": cats, "post_category":post_category})
+    post_category = Post.objects.filter(status=1, category=cats).order_by("-created_on")
+    paginator = Paginator(post_category, 6) 
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+            # If page is not an integer deliver the first page
+        post_list = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        post_list = paginator.page(paginator.num_pages)
+    return render(request, "categories.html", {"post_category":post_category, "cats": cats, 'page': page,
+                   'post_list': post_list})
 
 
 class PostList(ListView):
