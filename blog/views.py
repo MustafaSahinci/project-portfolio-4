@@ -75,12 +75,10 @@ def categories(request, cats):
     try:
         post_list = paginator.page(page)
     except PageNotAnInteger:
-            # If page is not an integer deliver the first page
         post_list = paginator.page(1)
     except EmptyPage:
-        # If page is out of range deliver last page of results
         post_list = paginator.page(paginator.num_pages)
-    return render(request, "categories.html", {"post_category":post_category, "cats": cats, 'page': page,
+    return render(request, "categories.html", {"post_category": post_category, "cats": cats, 'page': page,
                    'post_list': post_list})
 
 
