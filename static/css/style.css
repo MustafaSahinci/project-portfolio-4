@@ -91,12 +91,11 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color:#0f9dd7;
 }
 
-.post-link:hover,
-    {
-    color: #E84610;
+.post-link:hover{
+    color: black;
 }
 
 /* .post-title {
@@ -192,6 +191,10 @@ footer {
     text-transform: uppercase;
 }
 
+.navbar-user {
+    font-size: 20px;
+}
+
 header.masthead {
     position: relative;
     margin-bottom: 3rem;
@@ -231,6 +234,7 @@ header.masthead:before {
     font-weight: 300;
     line-height: 1.1;
     text-align: center;
+    color: white;
     display: block;
     margin-top: 0.625rem;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -241,17 +245,12 @@ header.masthead:before {
     color: white;
 }
 
-.post-heading {
-    text-align: center;
-    color: white;
-}
-
 .site-heading h1 {
     font-size: 5rem;
 }
 
 .post-heading h1 {
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 .post-heading h2 {
@@ -307,6 +306,7 @@ a:hover {
 }
 
 .sec-head {
+    text-align: center;
     color: black;
     display: inline-block;
     font-size: 30px;
@@ -395,12 +395,12 @@ img {
         color: #0f9dd7;
     }
 
-    #mainNav .navbar-user {
-        color: #0f9dd7;
+    .navbar-user {
+        font-size: 20px;
         font-weight: 800;
     }
 
-    #mainNav .navbar-user:hover {
+    .navbar-user:hover {
         color: #fff;
     }
 
@@ -422,5 +422,11 @@ img {
     header.masthead {
         padding-top: 12.5rem;
         padding-bottom: 12.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .single-well>p{
+        text-align: center;
     }
 }

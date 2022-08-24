@@ -43,9 +43,11 @@
                           Blog
                         </a>
                         <ul class="dropdown-menu">
-                          {% for item in cat_menu %}
-                          <a class="dropdown-item" href="{% url 'categories' item %}">{{ item }}</a>
-                          {% endfor %}
+                            <a class="dropdown-item" href="{% url 'blog'%}">Blog</a>
+                            <hr class="dropdown-divider">
+                            {% for item in cat_menu %}
+                            <a class="dropdown-item" href="{% url 'categories' item %}">{{ item }}</a>
+                            {% endfor %}
                         </ul>
                       </li>
                       {% endif %}

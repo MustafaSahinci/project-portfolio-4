@@ -14,7 +14,7 @@
                 </p>
                 <div class="row">
 
-                    <div class="col-1">
+                    <div class="col-3">
                         <strong>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
@@ -33,7 +33,7 @@
                             <span class="text-secondary"> {{ post.number_of_likes }}</span>
                         </strong>
                     </div>
-                    <div class="col-1">
+                    <div class="col-3">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
                             <!-- Our total_comments variable goes before the closing strong tag -->
@@ -42,10 +42,10 @@
                     </div>
                     {% if user.is_authenticated %}
                         {% if user.id == post.author.id %}
-                    <div class="col-1">
-                        <a class="post-link" href="{% url 'post_edit' post.slug  %}">Edit</a>
+                    <div class="col-3">
+                        <a class="post-link " href="{% url 'post_edit' post.slug  %}">Edit</a>
                     </div>
-                    <div class="col-1">
+                    <div class="col-3">
                         <a class="post-link" href="{% url 'post_delete' post.slug  %}">Delete</a>
                     </div>
                         {% endif %}
@@ -93,7 +93,7 @@
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3rem;">
-                    {{ comment_form | crispy }}
+                    {{ comment_form.as_p }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>

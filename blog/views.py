@@ -70,7 +70,7 @@ def post_delete(request, slug):
 
 def categories(request, cats):
     post_category = Post.objects.filter(status=1, category=cats).order_by("-created_on")
-    paginator = Paginator(post_category, 6) 
+    paginator = Paginator(post_category, 6)
     page = request.GET.get('page')
     try:
         post_list = paginator.page(page)
