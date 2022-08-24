@@ -4,6 +4,10 @@
 
 {% include "includes/header.html" %}
 
+{% load static %}
+
+{% load cloudinary %}
+
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
@@ -14,7 +18,7 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
             <div class="form-group">
-                <form action="" method=POST>
+                <form action="" method=POST enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ post_form.as_p | safe }}
                     <br>
