@@ -1,9 +1,10 @@
-{% extends "socialaccount/base.html" %}
+{% extends "base.html" %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+{% include "includes/header.html" %}
 {% if process == "connect" %}
 <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
 
