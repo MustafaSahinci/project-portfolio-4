@@ -332,6 +332,10 @@ img {
     font-weight: bold;
 }
 
+.travel-img {
+    border-radius: 1rem;
+}
+
 .features-icons {
     padding-top: 7rem;
     padding-bottom: 7rem;
