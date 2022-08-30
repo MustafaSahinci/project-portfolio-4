@@ -9,6 +9,17 @@
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
+                    <h1 class="text-center">{{ post.title }}</h1>
+                    <h2 class="text-center"> Post Created By: {{ post.author }} 
+                        {% if "placeholder" in post.author.profile.profile_image.url %}
+                        <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="35px" width="35px" class="rounded-circle"
+                        src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg"></a>
+                        {% else %}
+                        <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="40px" width="40px" class="rounded-circle"
+                        src="{{ post.author.profile.profile_image.url }}"></a>
+                        {% endif %}
+                    </h2>
+                    <br>
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
@@ -41,14 +52,14 @@
                         {% endwith %}
                     </div>
                     {% if user.is_authenticated %}
-                        {% if user.id == post.author.id %}
+                    {% if user.id == post.author.id %}
                     <div class="col-3">
                         <a class="post-link " href="{% url 'post_edit' post.slug  %}">Edit</a>
                     </div>
                     <div class="col-3">
                         <a class="post-link" href="{% url 'post_delete' post.slug  %}">Delete</a>
                     </div>
-                        {% endif %}
+                    {% endif %}
                     {% endif %}
                 </div>
             </div>

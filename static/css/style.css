@@ -39,6 +39,9 @@ body {
 }
 
 .card-img-top {
+    max-width: 100%;
+    width: 612px;
+    height: 320px;
     border-radius: 1rem;
 }
 
@@ -316,11 +319,11 @@ a:hover {
     transition: all 0.4s ease 0s;
 }
 
-img {
+/* img {
     max-width: 100%;
     width: 612px;
     height: 320px;
-}
+} */
 
 .about-p1 {
     font-size: 20px;
@@ -333,6 +336,9 @@ img {
 }
 
 .travel-img {
+    max-width: 100%;
+    width: 612px;
+    height: 320px;
     border-radius: 1rem;
 }
 

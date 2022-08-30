@@ -14,6 +14,20 @@ class Category(models.Model):
         return self.name
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+    profile_image = CloudinaryField('image', default='placeholder')
+    facebook_url = models.CharField(max_length=200, null=True, blank=True)
+    instagram_url = models.CharField(max_length=200, null=True, blank=True)
+    twitter_url = models.CharField(max_length=200, null=True, blank=True)
+    linkedin_url = models.CharField(max_length=200, null=True, blank=True)
+    github_url = models.CharField(max_length=200, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)

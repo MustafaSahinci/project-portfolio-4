@@ -10,7 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.http import HttpResponseRedirect
-from .models import Post, Category
+from .models import Post, Category, Profile
 from .forms import CommentForm, PostForm
 from django.contrib import messages
 
@@ -80,6 +80,17 @@ def categories(request, cats):
         post_list = paginator.page(paginator.num_pages)
     return render(request, "categories.html", {"post_category": post_category, "cats": cats, 'page': page,
                    'post_list': post_list})
+
+
+class ProfileDetails(DetailView):
+    model = Profile
+    template_name = "profile_detail.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProfileDetails, self).get_context_data(*args, **kwargs)
+        logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
+        context["logged_user"] = logged_user
+        return context
 
 
 class PostList(ListView):
