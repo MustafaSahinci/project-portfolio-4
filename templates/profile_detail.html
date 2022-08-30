@@ -6,25 +6,39 @@
 
 {% include "includes/header.html" %}
 
-{{ logged_user }}
-
-<div class="card mb-3" style="max-width: 540px;">
+<div class="container card mb-3">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-2 text-center">
         {% if "placeholder" in logged_user.profile_image.url %}
-        <img src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg" class="img-fluid rounded-start" alt="...">
+        <img height="200px" width="200px" src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg" class="img-fluid rounded-start" alt="...">
         {% else %}
-        <img src="{{ logged_user.profile_image.url }}" class="img-fluid rounded-start" alt="...">
+        <img height="200px" width="200px" src="{{ logged_user.profile_image.url }}" class="img-fluid rounded-start" alt="...">
         {% endif%}
       </div>
-      <div class="col-md-8">
+      <div class="col-md-10">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">{{ logged_user.first_name }} {{ logged_user.last_name }}</h5>
+          <p class="small text muted">
+            {% if logged_user.facebook_url %}
+              <a href="{{ logged_user.facebook_url }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% endif %}
+            {% if logged_user.instagram_url %}
+              | <a href="{{ logged_user.instagram_url }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            {% endif %}
+            {% if logged_user.twitter_url %}    
+              | <a href="{{ logged_user.twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+            {% endif %}
+            {% if logged_user.linkedin_url %}  
+              | <a href="{{ logged_user.linkedin_url }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if logged_user.github_url %}
+              | <a href="{{ logged_user.github_url }}" target="_blank"><i class="fab fa-github"></i></a>
+            {% endif %}
+          </p>
+          <p class="card-text">{{ logged_user.bio }}</p>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 {%endblock%}
