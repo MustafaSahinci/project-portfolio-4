@@ -11,8 +11,9 @@ from django.views.generic import (
 )
 from django.http import HttpResponseRedirect
 from .models import Post, Category, Profile
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, ProfileForm
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 
 def post_create(request):
@@ -91,6 +92,15 @@ class ProfileDetails(DetailView):
         logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
         context["logged_user"] = logged_user
         return context
+
+
+class ProfileEdit(UpdateView):
+    model = Profile
+    template_name = "profile_edit.html"
+    form_class = ProfileForm
+    # fields = ['bio', 'first_name', 'last_name', 'profile_image', 'facebook_url',
+    #             'instagram_url', 'twitter_url', 'linkedin_url', 'github_url']
+    success_url = reverse_lazy("home")
 
 
 class PostList(ListView):

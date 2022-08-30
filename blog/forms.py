@@ -1,6 +1,6 @@
 from django_summernote.widgets import SummernoteInplaceWidget, SummernoteWidget
 from django import forms
-from .models import Comment, Post, Category
+from .models import Comment, Post, Category, Profile
 
 
 choices = Category.objects.all().values_list('name', 'name')
@@ -15,6 +15,24 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
         widgets = {
             'body': forms.Textarea(attrs={"class": "form-control"}),
+        }
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('first_name', 'last_name', 'profile_image', 'bio','facebook_url',
+                'instagram_url', 'twitter_url', 'linkedin_url', 'github_url',)
+        widgets = {
+            'first_name': forms.TextInput(attrs={"class": "form-control"}),
+            'last_name': forms.TextInput(attrs={"class": "form-control"}),
+            'profile_image': forms.FileInput(attrs={"class": "form-control"}),
+            'bio': forms.Textarea(attrs={"class": "form-control"}),
+            'facebook_url': forms.TextInput(attrs={"class": "form-control"}),
+            'instagram_url': forms.TextInput(attrs={"class": "form-control"}),
+            'twitter_url': forms.TextInput(attrs={"class": "form-control"}),
+            'linkedin_url': forms.TextInput(attrs={"class": "form-control"}),
+            'github_url': forms.TextInput(attrs={"class": "form-control"}),
         }
 
 
