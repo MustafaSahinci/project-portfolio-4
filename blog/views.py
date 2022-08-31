@@ -94,12 +94,21 @@ class ProfileDetails(DetailView):
         return context
 
 
+class ProfileCreate(CreateView):
+    model = Profile
+    template_name = "profile_create.html"
+    form_class = ProfileForm
+    success_url = reverse_lazy("home")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
 class ProfileEdit(UpdateView):
     model = Profile
     template_name = "profile_edit.html"
     form_class = ProfileForm
-    # fields = ['bio', 'first_name', 'last_name', 'profile_image', 'facebook_url',
-    #             'instagram_url', 'twitter_url', 'linkedin_url', 'github_url']
     success_url = reverse_lazy("home")
 
 
