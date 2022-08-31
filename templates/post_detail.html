@@ -11,12 +11,14 @@
                 <!-- Use the | safe filter inside the template tags -->
                     <h1 class="text-center">{{ post.title }}</h1>
                     <h2 class="text-center"> Post Created By: {{ post.author }} 
+                        {% if post.author.profile.id %}
                         {% if "placeholder" in post.author.profile.profile_image.url %}
                         <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="35px" width="35px" class="rounded-circle"
                         src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg"></a>
                         {% else %}
                         <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="40px" width="40px" class="rounded-circle"
                         src="{{ post.author.profile.profile_image.url }}"></a>
+                        {% endif %}
                         {% endif %}
                     </h2>
                     <br>
