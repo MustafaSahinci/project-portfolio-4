@@ -45,20 +45,6 @@ body {
     border-radius: 1rem;
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #0f9dd7;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
 /* .masthead {
     margin-top: 10px;
     overflow: hidden;

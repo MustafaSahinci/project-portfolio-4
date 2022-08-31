@@ -28,6 +28,7 @@
         <div class="container px-4 px-lg-5">
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
+                {% if user.profile.id %}
                 {% if "placeholder" in user.profile.profile_image.url %}
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img height="35px" width="35px" class="rounded-circle"
@@ -39,6 +40,12 @@
                     src="{{ user.profile.profile_image.url }}">
                 </a>
                 {% endif %}
+                {% else %}
+                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img height="35px" width="35px" class="rounded-circle"
+                    src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
+                </a>
+                {% endif %}
                 <ul class="dropdown-menu">
                     {% if user.profile.id %}
                     <a class="dropdown-item" href="{% url 'profile_detail' user.profile.id %}">Show Profile</a>
@@ -46,8 +53,6 @@
                     {% else %}
                     <a class="dropdown-item" href="{% url 'profile_create' %}">Create Profile</a>
                     {% endif %}
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                 </ul>
             </li>
             {% endif %}

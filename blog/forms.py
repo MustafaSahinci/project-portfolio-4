@@ -39,7 +39,7 @@ class ProfileForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'category', 'featured_image', 'excerpt', 'content')
+        fields = ('title', 'excerpt', 'category', 'featured_image', 'content')
         widgets = {
             'title': forms.TextInput(attrs={"class": "form-control"}),
             'category': forms.Select(choices= choice_list, attrs={"class": "form-control"}),
