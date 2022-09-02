@@ -10,9 +10,9 @@
     <div class="row g-0">
       <div class="col-md-2 text-center">
         {% if "placeholder" in logged_user.profile_image.url %}
-        <img height="200px" width="200px" src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg" class="img-fluid rounded-start" alt="...">
+        <img src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg" class="img-fluid rounded-start" alt="...">
         {% else %}
-        <img height="200px" width="200px" src="{{ logged_user.profile_image.url }}" class="img-fluid rounded-start" alt="...">
+        <img src="{{ logged_user.profile_image.url }}" class="img-fluid rounded-start" alt="...">
         {% endif%}
       </div>
       <div class="col-md-10">

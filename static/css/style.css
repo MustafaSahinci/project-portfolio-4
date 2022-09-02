@@ -374,6 +374,18 @@ a:hover {
     list-style: none;
 }
 
+.img-fluid{
+    height: 200px;
+    width: 200px;
+}
+
+.btn-left{
+    margin-right: 5px;
+}
+
+.btn-right{
+    margin-left: 5px;
+}
 
 @media (min-width: 992px) {
     #mainNav {
