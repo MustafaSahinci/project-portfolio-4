@@ -4,6 +4,7 @@ This blog is for users who want to share their adventures and experiences from t
 
 for the live website click
 [here](https://project---4.herokuapp.com/)
+
 ![Am I Responsive](docs/iamresponsive.png)
 
 <hr>
@@ -26,26 +27,31 @@ Registered users can create, edit and delete their own posts. They can also comm
 - As a returning visitor, I would like to like posts. 
 - As a returning visitor, I would like to comment on posts.
 - As a returning visitor, I would like to create, read, edit and delete my own posts.
+- As a returning visitor, I would like to create and edit my own profile
+- As a returning visitor, I would like to see al my own post in my profile page
 - As a returning visitor, I would like to logout when I want.
 
 
 
 ## agile
+Agile is an approach to project management that centers around incremental and iterative steps to completing projects. The incremental parts of a project are carried out in short-term development cycles
+
+I used the Canban board in github projects and issues which you can see 
+[here](https://github.com/MustafaSahinci/project-portfolio-4/projects/1)
+
+And I used the github Milestones for the sprints which you can see
+[here](https://github.com/MustafaSahinci/project-portfolio-4/milestones)
+
 ### Scope
 For the scope of this project the following key points were determined.
 
 - Create a webpage application using the Django framework.
-- Use bootstrap to make the site responsive, and custom CSS and Java Script to complement.
-- Allow the user to create an account in order to upload content.
-- Allow logged in users to interact with other posts through comments and actions.
-- Allow users to manipulate their content (CRUD Operations).
-- The frontend should be simple and present the content in a clear way.
-- The website should be functional, easy to navigate and intuitive.
+- Use bootstrap to make the site responsive.
+- Allow the user to create an account so that they can create their own post and profile.
+- Allow logged in users add comments so they can communicate with each other
+- Allow users to Crud(Create, Read, Update and Delete) their posts and profile.
+- The website should be easy to navigate and everything should be clear
 
-To do - In Progress - Done click
-[here](https://github.com/MustafaSahinci/project-portfolio-4/projects/1)
-
-For the Milestones click
-[here](https://github.com/MustafaSahinci/project-portfolio-4/milestones)
-
+### Site map
 ![Lucid App](docs/Lucas.png)
+

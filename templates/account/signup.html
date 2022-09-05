@@ -17,6 +17,20 @@
     <div class="col-md-8 mt-3 offset-md-2">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-error">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-error">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
         <div class="form-floating mb-3">
           <input name="username" type="text" class="form-control"  placeholder="Username" autocomplete="username" minlength="1" maxlength="150" required id="id_username">
           <label for="id_username">Username</label>
