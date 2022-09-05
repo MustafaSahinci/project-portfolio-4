@@ -10,7 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.http import HttpResponseRedirect
-from .models import Post, Category, Profile
+from .models import Post, Category, Profile, User
 from .forms import CommentForm, PostForm, ProfileForm
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -85,13 +85,21 @@ def categories(request, cats):
 
 class ProfileDetails(DetailView):
     model = Profile
-    template_name = "profile_detail.html"
+    template_name = "profile_detail.html" 
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(ProfileDetails, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_posts = Post.objects.filter(status=1, author=self.kwargs["pk"]).order_by("-created_on")
         logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
         context["logged_user"] = logged_user
+        context['user_posts'] = user_posts
         return context
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(ProfileDetails, self).get_context_data(*args, **kwargs)
+    #     logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
+    #     context["logged_user"] = logged_user
+    #     return context
 
 
 class ProfileCreate(CreateView):
@@ -117,7 +125,6 @@ class PostList(ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog.html"
     paginate_by = 6
-
 
 # class CreatePost(CreateView):
 #     model = Post

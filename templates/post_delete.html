@@ -10,8 +10,10 @@
 
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
+        <div class="section-headline text-center">
+        <h1>Delete Post</h1>
+      </div>
         <center>
-            <h1>Delete post</h1>
             <h3>Delete: {{ post.title }}</h3>
             <form action="" method=POST>
                 {% csrf_token %}

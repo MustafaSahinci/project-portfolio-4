@@ -262,7 +262,7 @@ a:hover {
     width: 43%;
 }
 
-.section-headline h2 {
+.section-headline h1 {
     display: inline-block;
     font-size: 40px;
     font-weight: 600;
@@ -271,7 +271,7 @@ a:hover {
     text-transform: capitalize;
 }
 
-.section-headline h2::after {
+.section-headline h1::after {
     border: 1px solid #333;
     bottom: -20px;
     content: "";
@@ -282,7 +282,7 @@ a:hover {
     width: 40%;
 }
 
-.section-headline h2 {
+.section-headline h1 {
     font-size: 4rem;
 }
 

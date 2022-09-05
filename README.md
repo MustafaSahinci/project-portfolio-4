@@ -29,13 +29,21 @@ for the live website click
 - As a returning visitor, I would like to logout when I want.
 
 ## agile
-Scope
+### Scope
 For the scope of this project the following key points were determined.
 
-Create a webpage application using the Django framework.
-Use bootstrap to make the site responsive, and custom CSS and Java Script to complement.
-Allow the user to create an account in order to upload content.
-Allow logged in users to interact with other posts through comments and actions.
-Allow users to manipulate their content (CRUD Operations).
-The frontend should be simple and present the content in a clear way.
-The website should be functional, easy to navigate and intuitive.
+- Create a webpage application using the Django framework.
+- Use bootstrap to make the site responsive, and custom CSS and Java Script to complement.
+- Allow the user to create an account in order to upload content.
+- Allow logged in users to interact with other posts through comments and actions.
+- Allow users to manipulate their content (CRUD Operations).
+- The frontend should be simple and present the content in a clear way.
+- The website should be functional, easy to navigate and intuitive.
+
+To do - In Progress - Done click
+[here](https://github.com/MustafaSahinci/project-portfolio-4/projects/1)
+
+For the Milestones click
+[here](https://github.com/MustafaSahinci/project-portfolio-4/milestones)
+
+![Lucid App](docs/Lucas.png)
