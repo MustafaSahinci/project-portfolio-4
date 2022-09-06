@@ -55,3 +55,165 @@ For the scope of this project the following key points were determined.
 ### Site map
 ![Lucid App](docs/Lucas.png)
 
+## 2. Features
+<details>
+<summary>Navigation And Footer</summary>
+<br>
+
+Unregistered User
+
+![NavBar](docs/hero-image-navbar.png)
+
+Registered user
+
+![NavBar](docs/hero-image-navbar1.png)
+
+Admin
+
+![NavBar](docs/hero-image-navbar2.png)
+
+Responsive Navigation
+
+![NavBar](docs/hero-image-navbar3.png)
+
+Responsive Navigation dropdown
+
+![NavBar](docs/hero-image-navbar4.png)
+
+Categories Dropdown
+
+![NavBar](docs/dropdown.png)
+
+Created Profile Dropdown
+
+![NavBar](docs/prof-nav.png)
+
+Not Created Profile dropdown
+
+![NavBar](docs/prof-nav1.png)
+
+Footer
+
+![Footer](docs/footer.png)
+</details>
+
+<details>
+<summary>Home Page</summary>
+<br>
+
+Masthead/Hero-image same on every page except Post Details
+
+![Home Page](docs/home-page.png)
+
+About Section
+
+![Home Page](docs/home-page1.png)
+
+Categories Section
+
+![Home Page](docs/home-page2.png)
+</details>
+
+<details>
+<summary>Blog And Categories</summary>
+<br>
+
+Blog page where you can find all the posts
+
+![Blog Page](docs/blog.png)
+
+Adventure page where you can find the posts with the category adventure
+
+![Adventure Page](docs/cat-adventure.png)
+
+Food page where you can find the posts with the category food
+
+![Food Page](docs/cat-food.png)
+
+Location page where you can find the posts with the category location
+
+![Location Page](docs/cat-location.png)
+</details>
+
+<details>
+<summary>Post CRUD</summary>
+<br>
+
+Create Post
+
+![Post](docs/create-post.png)
+![Post](docs/create-post1.png)
+
+Post Detail
+
+![Post](docs/post-detail.png)
+
+Post Detail logged in user and own post
+
+![Post](docs/post-detail1.png)
+
+Post detail logged in user but not own post
+
+![Post](docs/post-detail3.png)
+
+Post Detail not logged in
+
+![Post](docs/post-detail2.png)
+
+Edit your post
+
+![Post](docs/post-edit.png)
+
+Edit your post
+
+![Post](docs/post-edit1.png)
+
+Delete your post?
+
+![Post](docs/post-delete.png)
+</details>
+
+<details>
+<summary>Profile CRUD</summary>
+<br>
+
+Profile create
+![Profile](docs/profile-create.png)
+![Profile](docs/profile-create1.png)
+
+Profile page with profile detals and all own posts
+
+![Profile](docs/profile.png)
+
+Profile Edit
+
+![Profile](docs/profile-edit.png)
+![Profile](docs/profile-edit1.png)
+![Profile](docs/profile-edit2.png)
+</details>
+
+<details>
+<summary>Log In/Out and Register</summary>
+<br>
+
+Login Page
+
+![Login](docs/login.png)
+
+Logout Page
+
+![Logout](docs/logout.png)
+
+Register Page
+
+![Register](docs/register.png)
+</details>
+
+### future features
+- Users can login with their social media accounts
+- delete the comment approval so users can chat easily with eachother
+- Add more categories
+
+
+
+

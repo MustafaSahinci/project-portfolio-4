@@ -29,6 +29,10 @@ body {
     background-color: #F9FAFC;
 }
 
+.comment-name{
+    color: #0f9dd7;
+}
+
 .card {
     border: none;
     background-color: transparent;
