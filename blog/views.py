@@ -57,11 +57,11 @@ def post_edit(request, slug):
 
 
 def post_delete(request, slug):
+
     post = get_object_or_404(Post, slug=slug)
     context = {
         "post": post
     }
-    # post = Post.objects.get(Post, slug=slug)
     if request.method == "POST":
         post.delete()
         messages.success(request, "Post successfully deleted!")
@@ -70,6 +70,7 @@ def post_delete(request, slug):
 
 
 def categories(request, cats):
+
     post_category = Post.objects.filter(status=1, category=cats).order_by("-created_on")
     paginator = Paginator(post_category, 6)
     page = request.GET.get('page')
@@ -95,12 +96,6 @@ class ProfileDetails(DetailView):
         context['user_posts'] = user_posts
         return context
 
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super(ProfileDetails, self).get_context_data(*args, **kwargs)
-    #     logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
-    #     context["logged_user"] = logged_user
-    #     return context
-
 
 class ProfileCreate(CreateView):
     model = Profile
@@ -125,31 +120,6 @@ class PostList(ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog.html"
     paginate_by = 6
-
-# class CreatePost(CreateView):
-#     model = Post
-#     form_class = PostForm
-#     template_name = "post_create.html"
-
-#     def new_post(request, self):
-#         # submitted = False
-#         if request.method == "POST":
-#             form_class = PostForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#         context = {'form_class':form_class}
-#         return render(request, 'post_create.html', context)
-    #     return render(request, 'blog.html')
-    # else:
-    #     form_class = PostForm
-    #     if submitted in request.Get:
-    #         submitted = True
-    #     return render(request, 'blog.html')
-
-    # def form_valid(self, form):
-    #     """Function to set signed in user as author of form to post"""
-    #     form.instance.author = self.request.user
-    #     return super().form_valid(form)
 
 
 class Home(TemplateView):

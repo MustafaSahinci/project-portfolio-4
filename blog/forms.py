@@ -50,15 +50,3 @@ class PostForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
-
-    # def clean_servings(self):
-    #     """
-    #     Ensures servings is greater than zero
-    #     """
-    #     value = self.cleaned_data.get("serves")
-    #     print(value)
-    #     if value < 1:
-    #         raise forms.ValidationError(
-    #             "The number of servings must be greater than zero"
-    #             )
-    #     return value

@@ -251,6 +251,55 @@ Register Page
 - delete the comment approval so users can chat easily with eachother
 - Add more categories
 
+## 3. Technologies used
+- HTML5 used for markup
+- CSS3 used for style
+- JavaScript
+- Python
+- Bootstrap - Used for styling the site.
+- PostgreSQL - Used as database for this project
+- Ludichart - Used to create the site map.
+- amiresponsive Used to see how responsive the site is on different devices.
+-Cloudinary used to storing images and static files.
+- Django Framework used to build the site and admin page.
+- Font Awesome used for icons
+- Git used for version control, using the terminal to commit - to Git and Push to GitHub
+- GitHub is used to store the projects code after being pushed from Git.
+- Gitpod to write my code.
+- Google Chrome Dev tools used for debugging.
+- Google Lighthouse used for audits to measure the quality of web pages.
+- Heroku used to deploy this app.
 
+## 4. Testing
+## 5. Deployment
+This project was created on GitHub and Edited in GitPod by carrying out the following:
 
+- A new repository was created using 'Code-Instutute-Org/gitpod-full-template'
+- A meaningful name was given to the new repository and 'Create Repository' was selected
+- The repository was then opened on GitHub by clicking - - the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the PROJECT NAME HERE website/application
+- Version control was used throughout the project using the following commands in the terminal using Bash
+git add . OR git add "file name" - to stage the changes and get them ready for being committed to the local repo.
+git commit -m "Description of the update" - to save the change and commit the change to the local repo
+git push - to push all committed changes to the GitHub repo associated with the GitPod workspace
+- Project Deployment
+This project was deployed via Heroku by carrying out the following:
+
+- Create the gitpod repo from the template via the gitpod button in github.
+- Log in to Heroku and create a new app.
+- Add the heroku-postgres add-on
+- Complete the config vars section
+- Link Heroku and GitHub accounts together
+- Select the repo (via Heroku) that you want to make an app of and give it a name in Heroku.
+Click on deploy.
+
+## 6. Credits
+- My mentor Rohit Sharma
+- Code institute slack community
+- Stackoverflow
+- django documentation
+- bootstrap documentation
+- The youtube tutorial from John Elder https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi
+
+### media
+- images from google
 
