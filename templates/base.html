@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
+{% load static %}
+
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
@@ -29,18 +31,18 @@
                 {% if user.profile.id %}
                 {% if "placeholder" in user.profile.profile_image.url %}
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="35px" width="35px" class="rounded-circle"
+                    <img height="35px" width="35px" class="rounded-circle" alt="cute image with text on it"
                     src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
                 </a>
                 {% else %}
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="40px" width="40px" class="rounded-circle"
+                    <img height="40px" width="40px" class="rounded-circle" alt="image uploaded from user"
                     src="{{ user.profile.profile_image.url }}">
                 </a>
                 {% endif %}
                 {% else %}
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="35px" width="35px" class="rounded-circle"
+                    <img height="35px" width="35px" class="rounded-circle" alt="cute image with text on it"
                     src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
                 </a>
                 {% endif %}
