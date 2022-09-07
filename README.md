@@ -60,6 +60,12 @@ For the scope of this project the following key points were determined.
 <summary>Navigation And Footer</summary>
 <br>
 
+the navigation can be found at the top of the website. If you are not logged in, you will see register and log in, if you are logged in, you will see create post and logout, and if you are an admin you will also see an admin page link.
+
+The blog link has a dropdown where you can choose categories if you wish. Logging in will also display your profile picture with a dropdown menu on the left side of the navigation where you can create, view, and edit your profile.
+
+The navigation adapts to smaller screens by becoming a hamburger menu and the footer has social media links and is a simple design. the navigation and the footer are parts of the base.html
+
 Unregistered User
 
 ![NavBar](docs/hero-image-navbar.png)
@@ -101,6 +107,12 @@ Footer
 <summary>Home Page</summary>
 <br>
 
+The home page is kept simple. it consists of a hero image with the navigation on it. The hero image is part of the base.html
+
+Following that is an about section with a brief description of the site and a link to the blog.
+
+The last part of the page is a category section where you will find the categories that you can expect
+
 Masthead/Hero-image same on every page except Post Details
 
 ![Home Page](docs/home-page.png)
@@ -117,6 +129,12 @@ Categories Section
 <details>
 <summary>Blog And Categories</summary>
 <br>
+
+All posts can be found on the blog page. This page displays the photo, title, excerpt, author, category, date time, and likes for the post.
+
+Below the post you will find a category link that will take you to that category's page. On the category page, you will only see posts associated with that category. 
+
+All of these pages have a pagination of no more than six posts
 
 Blog page where you can find all the posts
 
@@ -138,6 +156,16 @@ Location page where you can find the posts with the category location
 <details>
 <summary>Post CRUD</summary>
 <br>
+
+Creating your own post is easy. You can enter a title, excerpt, and content, upload a photo, and choose a category.
+
+On the post detail page, the hero image changes to the actual post image with the post details.
+
+Below this is the title and content of the post, as well as how many likes and comments the post has. Here you'll also see who the author is, and if the author created a profile, you'll also see their profile picture, which you can press to go to their profile page.
+
+You can see the comments below. If you are logged in, you can post your comments. And if you created this post yourself, you will also see a link to edit and delete the post.
+
+You can change anything about your post on the post edit page. And on the delete page you can delete your post
 
 Create Post
 
@@ -177,11 +205,18 @@ Delete your post?
 <summary>Profile CRUD</summary>
 <br>
 
+If you haven't created a profile, you will see the link in the navigation. On the profile create page, you can enter your first name, last name, bio, social media links, and upload your photo.
+
+On the profile detail page you see the username, photo, first name, last name, social media links and the bio of the author. And below are all the posts created by this author
+
+You can change anything about your profile on the profile edit page.
+
 Profile create
+
 ![Profile](docs/profile-create.png)
 ![Profile](docs/profile-create1.png)
 
-Profile page with profile detals and all own posts
+Profile page with profile details and all own posts
 
 ![Profile](docs/profile.png)
 
@@ -195,6 +230,8 @@ Profile Edit
 <details>
 <summary>Log In/Out and Register</summary>
 <br>
+
+these pages are for logging in/out and registering
 
 Login Page
 
