@@ -1,12 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 {% load static %}
-
 {% include "includes/header.html" %}
-
-{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
@@ -34,4 +29,4 @@
     <br>
     {% endif %}
 
-    {%endblock%}
+{%endblock%}

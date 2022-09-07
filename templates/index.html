@@ -1,11 +1,8 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 {% load static %}
-
 {% include "includes/header.html" %}
-
+<!-- about section -->
 <div class="about-area area-padding">
     <div class="container">
         <div class="row">
@@ -43,12 +40,12 @@
     </div>
 </div>
 <hr>
-<section class="features-icons bg-light text-center">
+<!-- categories section -->
+<div class="features-icons bg-light text-center">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                    <!-- <div class="features-icons-icon d-flex"><i class="big-i fas fa-plane m-auto"></i></div> -->
                     <div class="features-icons-icon d-flex"></div>
                     <h3>Write about your adventures</h3>
                     <p class="lead mb-0">Share the best adventures you've had in the cities</p>
@@ -70,8 +67,6 @@
             </div>
         </div>
     </div>
-</section>
-
-
+</div>
 <br>
 {%endblock%}

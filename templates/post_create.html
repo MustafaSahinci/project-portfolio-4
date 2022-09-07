@@ -1,14 +1,8 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 {% include "includes/header.html" %}
-
 {% load static %}
-
 {% load cloudinary %}
-
-{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
 <div class="section-headline text-center">
@@ -33,6 +27,6 @@
 <center>
     <h1>You are not Logged in</h1 </center>
     <br>
-    {% endif %}
+{% endif %}
 
-    {%endblock%}
+{%endblock%}

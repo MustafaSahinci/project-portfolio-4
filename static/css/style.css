@@ -2,37 +2,16 @@ body {
     background-color: #F9FAFC;
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
-}
-
-.red-o {
-    color: #E84610;
-}
-
-.thin {
-    font-weight: 300;
-}
-
-.light-bg {
-    background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
-}
-
 .main-bg {
     background-color: #F9FAFC;
 }
 
+/* post detail */
 .comment-name{
     color: #0f9dd7;
 }
 
+/* blog */
 .card {
     border: none;
     background-color: transparent;
@@ -49,39 +28,6 @@ body {
     border-radius: 1rem;
 }
 
-/* .masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #0f9dd7;
-    color: white;
-    position: relative;
-} */
-
-/* .masthead-image {
-    width: 100%;
-} */
-
-/* .masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #0f9dd7;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-} */
-
 .post-link {
     text-decoration: none;
     color:#0f9dd7;
@@ -94,29 +40,6 @@ body {
 .post-title {
     text-decoration: none;
     color: black;
-}
-
-
-.btn-signup {
-    background-color: #0f9dd7;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #0f9dd7;
-}
-
-.link {
-    color: #0f9dd7;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
 }
 
 .btn-like {
@@ -132,30 +55,18 @@ body {
     border: none;
 }
 
-.social-network i {
-    color: white;
-}
-
 .bg-sky {
     background-color: #0f9dd7;
 }
 
-/* .bgimage {
-    width: 100%;
-    height: 500px;
-    background: url('https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-} */
-
+/* footer */
 footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
     font-size: 1.20rem;
 }
 
+/* NavBar */
 #mainNav {
     position: absolute;
     top: 0;
@@ -184,10 +95,6 @@ footer {
     text-transform: uppercase;
 }
 
-.navbar-user {
-    font-size: 20px;
-}
-
 header.masthead {
     position: relative;
     margin-bottom: 3rem;
@@ -208,18 +115,6 @@ header.masthead:before {
     bottom: 0;
     background-color: #212529;
     opacity: 0.5;
-}
-
-
-
-.site-heading .subheading {
-    font-size: 1.5rem;
-    font-weight: 300;
-    line-height: 1.1;
-    text-align: center;
-    display: block;
-    margin-top: 0.625rem;
-    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .post-heading {
@@ -262,13 +157,10 @@ a:hover {
     color: black;
 }
 
-.form-group {
-    width: 43%;
-}
-
+/* H1 almost on every page  */
 .section-headline h1 {
     display: inline-block;
-    font-size: 40px;
+    font-size: 4rem;
     font-weight: 600;
     margin-bottom: 70px;
     position: relative;
@@ -286,10 +178,7 @@ a:hover {
     width: 40%;
 }
 
-.section-headline h1 {
-    font-size: 4rem;
-}
-
+/* index page */
 .well-middle .single-well {
     margin-top: 30px;
 }
@@ -308,12 +197,6 @@ a:hover {
     text-transform: uppercase;
     transition: all 0.4s ease 0s;
 }
-
-/* img {
-    max-width: 100%;
-    width: 612px;
-    height: 320px;
-} */
 
 .about-p1 {
     font-size: 20px;
@@ -365,11 +248,6 @@ a:hover {
     border-radius: 1rem;
 }
 
-.big-i {
-    font-size: 4.5rem;
-    color: #0f9dd7;
-}
-
 .rounded-circle {
     border: 2px solid white;
 }
@@ -378,11 +256,13 @@ a:hover {
     list-style: none;
 }
 
+/* Profile picture smal */
 .img-fluid{
     height: 200px;
     width: 200px;
 }
 
+/* pagination */
 .btn-left{
     margin-right: 5px;
 }

@@ -1,11 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 {% load static %}
-
 {% include "includes/header.html" %}
-
 {% if post_category %}
 
 <div class="section-headline text-center">
@@ -14,8 +10,7 @@
 
 <div class="container-fluid">
     <div class="row">
-
-        <!-- Blog Entries Column -->
+        <!-- Categories Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}

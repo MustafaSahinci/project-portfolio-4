@@ -5,7 +5,6 @@
 
 <head>
     <title>Travel Blog</title>
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -17,7 +16,6 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -56,9 +54,7 @@
                 </ul>
             </li>
             {% endif %}
-            <li class="nav-item"><a class="navbar-brand" href="{% url 'home' %}">Travel</a></li>
-            <!-- <a class="navbar-user" href="{% url 'home' %}">{{user.username}}</a> -->
-            
+            <li class="nav-item"><a class="navbar-brand" href="{% url 'home' %}">Travel</a></li>         
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -84,7 +80,6 @@
                         </ul>
                       </li>
                       {% endif %}
-                    <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog' %}">Blog</a></li> -->
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'post_create' %}">Create
                             Post</a></li>
@@ -100,21 +95,7 @@
             </div>
         </div>
     </nav>
-
-    <!-- <header class="masthead"
-        style="background-image: url('https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c')">
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header> -->
-
+    <!-- allert message -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -129,7 +110,6 @@
     </div>
 
     <main class="flex-shrink-0 main-bg">
-
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

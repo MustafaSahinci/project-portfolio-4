@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 {% load static %}
 {% load cloudinary %}
-
 {% include "includes/header.html" %}
 
 {% if user.is_authenticated %}
@@ -32,5 +29,4 @@
         <h1>You are not Logged in</h1 </center>
         <br>
         {% endif %}
-
-        {%endblock%}
+{%endblock%}
