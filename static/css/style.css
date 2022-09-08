@@ -250,6 +250,8 @@ a:hover {
 
 .rounded-circle {
     border: 2px solid white;
+    height: 40px;
+    width: 40px;
 }
 
 .nav-item{

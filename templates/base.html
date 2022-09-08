@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html class="h-100">
+<html lang="en" class="h-100">
 
 <head>
     <title>Travel Blog</title>
@@ -27,36 +27,36 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
             {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
+            <ul class="nav-item dropdown">
                 {% if user.profile.id %}
                 {% if "placeholder" in user.profile.profile_image.url %}
-                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="35px" width="35px" class="rounded-circle" alt="cute image with text on it"
+                <li><a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="rounded-circle" alt="cute image with text on it"
                     src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
                 </a>
                 {% else %}
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="40px" width="40px" class="rounded-circle" alt="image uploaded from user"
+                    <img class="rounded-circle" alt="image uploaded from user"
                     src="{{ user.profile.profile_image.url }}">
                 </a>
                 {% endif %}
                 {% else %}
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="35px" width="35px" class="rounded-circle" alt="cute image with text on it"
+                    <img class="rounded-circle" alt="cute image with text on it"
                     src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
-                </a>
+                </a></li>
                 {% endif %}
-                <ul class="dropdown-menu">
+                <li class="dropdown-menu">
                     {% if user.profile.id %}
                     <a class="dropdown-item" href="{% url 'profile_detail' user.profile.id %}">Show Profile</a>
                     <a class="dropdown-item" href="{% url 'profile_edit' user.profile.id %}">Edit Profile</a>
                     {% else %}
                     <a class="dropdown-item" href="{% url 'profile_create' %}">Create Profile</a>
                     {% endif %}
-                </ul>
-            </li>
+                </li>
+            </ul>
             {% endif %}
-            <li class="nav-item"><a class="navbar-brand" href="{% url 'home' %}">Travel</a></li>         
+            <ul class="nav-item"><li><a class="navbar-brand" href="{% url 'home' %}">Travel</a></li></ul>         
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -74,10 +74,10 @@
                           Blog
                         </a>
                         <ul class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'blog'%}">Blog</a>
-                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="{% url 'blog'%}">Blog</a></li>
+                            <li><hr class="dropdown-divider"></li>
                             {% for item in cat_menu %}
-                            <a class="dropdown-item" href="{% url 'categories' item %}">{{ item }}</a>
+                            <li><a class="dropdown-item" href="{% url 'categories' item %}">{{ item }}</a></li>
                             {% endfor %}
                         </ul>
                       </li>
