@@ -30,7 +30,7 @@
             <ul class="nav-padding nav-item dropdown">
                 {% if user.profile.id %}
                 {% if "placeholder" in user.profile.profile_image.url %}
-                <li><a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="rounded-circle" alt="cute image with text on it"
                     src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
                 </a>
@@ -44,7 +44,7 @@
                 <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="rounded-circle" alt="cute image with text on it"
                     src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
-                </a></li>
+                </a>
                 {% endif %}
                 <li class="dropdown-menu">
                     {% if user.profile.id %}

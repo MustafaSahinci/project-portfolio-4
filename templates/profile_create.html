@@ -5,7 +5,11 @@
 {% include "includes/header.html" %}
 
 {% if user.is_authenticated %}
-
+{% if user.profile.first_name %}
+<center>
+    <h1>You are not right user</h1 </center>
+    <br>
+    {% else %}
 <div class="section-headline text-center">
     <h1>Create Your Profile</h1>
 </div>
@@ -24,6 +28,7 @@
     </div>
 </div>
 <br>
+{% endif %}
     {% else %}
     <center>
         <h1>You are not Logged in</h1 </center>
