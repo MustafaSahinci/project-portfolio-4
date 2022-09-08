@@ -21,8 +21,9 @@ class CommentForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('first_name', 'last_name', 'profile_image', 'bio','facebook_url',
-                'instagram_url', 'twitter_url', 'linkedin_url', 'github_url',)
+        fields = ('first_name', 'last_name', 'profile_image', 'bio',
+                  'facebook_url', 'instagram_url', 'twitter_url',
+                  'linkedin_url', 'github_url',)
         widgets = {
             'first_name': forms.TextInput(attrs={"class": "form-control"}),
             'last_name': forms.TextInput(attrs={"class": "form-control"}),
@@ -42,11 +43,12 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'excerpt', 'category', 'featured_image', 'content')
         widgets = {
             'title': forms.TextInput(attrs={"class": "form-control"}),
-            'category': forms.Select(choices= choice_list, attrs={"class": "form-control"}),
+            'category': forms.Select(
+                choices=choice_list, attrs={"class": "form-control"}),
             'featured_image': forms.FileInput(attrs={"class": "form-control"}),
             'excerpt': forms.TextInput(attrs={"class": "form-control"}),
             'content': forms.Textarea(attrs={"class": "form-control"}),
         }
-    
+
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)

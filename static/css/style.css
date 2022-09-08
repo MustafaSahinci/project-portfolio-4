@@ -95,6 +95,10 @@ footer {
     text-transform: uppercase;
 }
 
+.nav-padding{
+    padding-left: unset;
+}
+
 header.masthead {
     position: relative;
     margin-bottom: 3rem;

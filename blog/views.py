@@ -71,7 +71,8 @@ def post_delete(request, slug):
 
 def categories(request, cats):
 
-    post_category = Post.objects.filter(status=1, category=cats).order_by("-created_on")
+    post_category = Post.objects.filter(
+        status=1, category=cats).order_by("-created_on")
     paginator = Paginator(post_category, 6)
     page = request.GET.get('page')
     try:
@@ -80,17 +81,18 @@ def categories(request, cats):
         post_list = paginator.page(1)
     except EmptyPage:
         post_list = paginator.page(paginator.num_pages)
-    return render(request, "categories.html", {"post_category": post_category, "cats": cats, 'page': page,
-                   'post_list': post_list})
+    return render(request, "categories.html", {"post_category": post_category,
+                  "cats": cats, 'page': page, 'post_list': post_list})
 
 
 class ProfileDetails(DetailView):
     model = Profile
-    template_name = "profile_detail.html" 
+    template_name = "profile_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_posts = Post.objects.filter(status=1, author=self.kwargs["pk"]).order_by("-created_on")
+        user_posts = Post.objects.filter(
+            status=1, author=self.kwargs["pk"]).order_by("-created_on")
         logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
         context["logged_user"] = logged_user
         context['user_posts'] = user_posts

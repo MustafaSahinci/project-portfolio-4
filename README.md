@@ -272,6 +272,14 @@ Register Page
 
 ## 4. Testing
 
+### W3C Markup Validation Service
+All html pages are tested and only few errors because of django code found
+### W3C CSS Validation Service
+CSS tested with no errors
+### Pep8
+All python code tested with no errors
+### Lighthouse
+
 ## 5. Deployment
 This project was created on GitHub and Edited in GitPod by carrying out the following:
 
