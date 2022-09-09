@@ -271,16 +271,62 @@ Register Page
 - Heroku used to deploy this app.
 
 ## 4. Testing
+Manual testing occurred regularly throughout local development and this project has been tested manually after deployment on Heroku
+
+<details>
+<summary>Test</summary>
+<br>
+
+All form validations are working here, and if you are not logged in or the wrong user, you cannot access the page
+
+All the links, buttons and features are working
+
+for login this error show up:
+The username and/or password you specified are not correct.
+
+and for register you can see these errors:
+The password is too similar to the username.
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+
+
+![Test](docs/login-test.png)
+![Test](docs/login-test1.png)
+![Test](docs/register-test.png)
+![Test](docs/register-test1.png)
+![Test](docs/register-test2.png)
+![Test](docs/post-edit-test.png)
+![Test](docs/post-edit-test1.png)
+![Test](docs/post-create-test.png)
+![Test](docs/post-create-test1.png)
+![Test](docs/post-create-test2.png)
+![Test](docs/post-delete-test.png)
+![Test](docs/post-delete-test1.png)
+![Test](docs/profile-edit-test.png)
+![Test](docs/profile-edit-test1.png)
+![Test](docs/profile-create-test.png)
+![Test](docs/profile-create-test1.png)
+</details>
+<br>
 
 ### W3C Markup Validation Service
-All html pages are tested and only few errors because of django code found
+All html pages are tested and only few errors because of django tags
+![Test](docs/html-test.png)
 ### W3C CSS Validation Service
 CSS tested with no errors
+![Test](docs/css-test.png)
 ### Pep8
 All python code tested with no errors
+![Test](docs/pep8-test.png)
 ### Lighthouse
 
-## 5. Deployment
+## 5.Bugs
+- On the profile create page, I only added code that allows users to see the page if they are authorized. However, this allowed other users who had already created a profile to access it as well. Then when they pressed create, an error appeared because this id has already an profile. Here, I added the code [% if user.profile.first_name %]. Users who already have a profile will not be able to access this page if this is true; instead, they will see you are not the right user.
+
+### Remaining Bugs
+- No known errors remaining.
+
+## 6. Deployment
 This project was created on GitHub and Edited in GitPod by carrying out the following:
 
 - A new repository was created using 'Code-Instutute-Org/gitpod-full-template'
@@ -301,7 +347,7 @@ This project was deployed via Heroku by carrying out the following:
 - Select the repo (via Heroku) that you want to make an app of and give it a name in Heroku.
 Click on deploy.
 
-## 6. Credits
+## 7. Credits
 - My mentor Rohit Sharma
 - Code institute slack community
 - Stackoverflow
