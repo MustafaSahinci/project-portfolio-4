@@ -282,9 +282,11 @@ All form validations are working here, and if you are not logged in or the wrong
 All the links, buttons and features are working
 
 for login this error show up:
+
 The username and/or password you specified are not correct.
 
 and for register you can see these errors:
+
 The password is too similar to the username.
 This password is too short. It must contain at least 8 characters.
 This password is too common.
@@ -311,12 +313,15 @@ This password is too common.
 
 ### W3C Markup Validation Service
 All html pages are tested and only few errors because of django tags
+
 ![Test](docs/html-test.png)
 ### W3C CSS Validation Service
 CSS tested with no errors
+
 ![Test](docs/css-test.png)
 ### Pep8
 All python code tested with no errors
+
 ![Test](docs/pep8-test.png)
 ### Lighthouse
 
