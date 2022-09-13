@@ -56,7 +56,7 @@
                     {% if user.is_authenticated %}
                     {% if user.id == post.author.id %}
                     <div class="col-3">
-                        <a class="post-link " href="{% url 'post_edit' post.slug  %}">Edit</a>
+                        <a class="post-link" href="{% url 'post_edit' post.slug  %}">Edit</a>
                     </div>
                     <div class="col-3">
                         <a class="post-link" href="{% url 'post_delete' post.slug  %}">Delete</a>
@@ -81,19 +81,21 @@
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold comment-name">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ comment.name }}
+                        <a class="post-link" href="{% url 'profile_detail' post.author.profile.id %}">{{ comment.name }}</a>
                         <span class=" text-muted font-weight-normal">
                             <!-- The comment's created date goes here -->
-                            {{ comment.created_on }}
-                        </span> wrote:
+                            {{ comment.created_on }} wrote:
+                        </span> 
                     </p>
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                     {% if user.is_authenticated  %}
                     {% if user.username == comment.name %}
-                    <a href="{% url 'comment_delete' comment.id %}" aria-label="delete-comment">delete</a>
+                    <a class="post-link" href="{% url 'comment_edit' comment.id %}" aria-label="delete-comment">Edit</a>
+                    <a class="post-link" href="{% url 'comment_delete' comment.id %}" aria-label="delete-comment">delete</a>
                     {% endif %}
                     {% endif %}
+                    <hr>
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}

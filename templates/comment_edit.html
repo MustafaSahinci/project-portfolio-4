@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-{% load cloudinary %}
 {% include "includes/header.html" %}
 
 {% if user.is_authenticated %}
-{% if user.id == profile.user.id %}
+{% if user.username == comment.name %}
 <div class="section-headline text-center">
-    <h1>Edit your Profile</h1>
+    <h1>Edit Your comment</h1>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
             <div class="form-group">
-                <form action="" method=POST enctype="multipart/form-data">
+                <form action="" method=POST>
                     {% csrf_token %}
                     {{ form.as_p | safe }}
                     <br>
@@ -34,4 +33,5 @@
         <h1>You are not Logged in</h1 </center>
         <br>
         {% endif %}
+
 {%endblock%}

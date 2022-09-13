@@ -59,6 +59,14 @@ body {
     background-color: #0f9dd7;
 }
 
+.bg-red {
+    background-color: red;
+}
+
+.bg-red:hover {
+    background-color: darkred;
+}
+
 /* footer */
 footer {
     padding-top: 3rem;

@@ -130,7 +130,6 @@ class ProfileCreate(CreateView):
     template_name = "profile_create.html"
     form_class = ProfileForm
     
-
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -239,8 +238,9 @@ class CommentDelete(DeleteView):
         return reverse_lazy('post_detail', kwargs={'slug': post.slug})
 
 
-class CommentUpdate(UpdateView):
+class CommentEdit(UpdateView):
     model = Comment
+    template_name = "comment_edit.html"
     form_class = CommentForm
 
     def form_valid(self, form):

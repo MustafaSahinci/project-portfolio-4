@@ -14,7 +14,7 @@
                 {% csrf_token %}
                 <br>
                 <p>Are you sure?</p>
-                <input class="btn btn-primary btn-large bg-sky" type="submit" value="Delete">
+                <input class="btn btn-primary btn-large bg-red" type="submit" value="Delete">
                 <a class="btn btn-primary btn-large bg-sky" href="{%  url 'post_detail' comment.post.slug  %}">Cancel</a>
             </form>
         </center>
