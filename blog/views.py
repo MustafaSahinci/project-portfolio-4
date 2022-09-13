@@ -10,69 +10,95 @@ from django.views.generic import (
     DeleteView
 )
 from django.http import HttpResponseRedirect
-from .models import Post, Category, Profile, User
+from .models import Post, Category, Profile, User, Comment
 from .forms import CommentForm, PostForm, ProfileForm
 from django.contrib import messages
 from django.urls import reverse_lazy
 
 
-def post_create(request):
+# def post_create(request):
 
-    post_form = PostForm(request.POST or None, request.FILES or None)
-    context = {
-        'post_form': post_form,
-    }
+#     post_form = PostForm(request.POST or None, request.FILES or None)
+#     context = {
+#         'post_form': post_form,
+#     }
 
-    if request.method == "POST":
-        post_form = PostForm(request.POST, request.FILES)
-        if post_form.is_valid():
-            post_form = post_form.save(commit=False)
-            post_form.author = request.user
-            post_form.status = 1
-            post_form.save()
-            return redirect('blog')
-    else:
-        post_form = PostForm()
-    return render(request, 'post_create.html', context)
+#     if request.method == "POST":
+#         post_form = PostForm(request.POST, request.FILES)
+#         if post_form.is_valid():
+#             post_form = post_form.save(commit=False)
+#             post_form.author = request.user
+#             post_form.status = 1
+#             post_form.save()
+#             return redirect('blog')
+#     else:
+#         post_form = PostForm()
+#     return render(request, 'post_create.html', context)
 
-
-def post_edit(request, slug):
-
-    post = get_object_or_404(Post, slug=slug)
-    post_form = PostForm(request.POST or None, instance=post)
-    context = {
-        "post_form": post_form,
-        "post": post
-    }
-    if request.method == "POST":
-        post_form = PostForm(request.POST, request.FILES, instance=post)
-        if post_form.is_valid():
-            post = post_form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('blog')
-    else:
-        post_form = PostForm(instance=post)
-    return render(request, "post_edit.html", context)
+class PostCreate(CreateView):
+    model = Post
+    template_name = "post_create.html"
+    form_class = PostForm
+    
+    def form_valid(self, form):
+        """Function to set signed in user as author of form to post"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
-def post_delete(request, slug):
+class PostEdit(UpdateView):
+    model = Post
+    template_name = "post_edit.html"
+    form_class = PostForm
 
-    post = get_object_or_404(Post, slug=slug)
-    context = {
-        "post": post
-    }
-    if request.method == "POST":
-        post.delete()
-        messages.success(request, "Post successfully deleted!")
-        return redirect('blog')
-    return render(request, "post_delete.html", context)
+    def form_valid(self, form):
+        """Function to set signed in user as author of form to post"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+# def post_edit(request, slug):
+
+#     post = get_object_or_404(Post, slug=slug)
+#     post_form = PostForm(request.POST or None, instance=post)
+#     context = {
+#         "post_form": post_form,
+#         "post": post
+#     }
+#     if request.method == "POST":
+#         post_form = PostForm(request.POST, request.FILES, instance=post)
+#         if post_form.is_valid():
+#             post = post_form.save(commit=False)
+#             post.author = request.user
+#             post.save()
+#             return redirect('blog')
+#     else:
+#         post_form = PostForm(instance=post)
+#     return render(request, "post_edit.html", context)
+
+
+class PostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete.html"
+    success_url = reverse_lazy("blog")
+
+# def post_delete(request, slug):
+
+#     post = get_object_or_404(Post, slug=slug)
+#     context = {
+#         "post": post
+#     }
+#     if request.method == "POST":
+#         post.delete()
+#         messages.success(request, "Post successfully deleted!")
+#         return redirect('blog')
+#     return render(request, "post_delete.html", context)
 
 
 def categories(request, cats):
 
     post_category = Post.objects.filter(
-        status=1, category=cats).order_by("-created_on")
+        category=cats).order_by("-created_on")
     paginator = Paginator(post_category, 6)
     page = request.GET.get('page')
     try:
@@ -92,7 +118,7 @@ class ProfileDetails(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user_posts = Post.objects.filter(
-            status=1, author=self.kwargs["pk"]).order_by("-created_on")
+            author=self.kwargs["pk"]).order_by("-created_on")
         logged_user = get_object_or_404(Profile, id=self.kwargs["pk"])
         context["logged_user"] = logged_user
         context['user_posts'] = user_posts
@@ -103,7 +129,7 @@ class ProfileCreate(CreateView):
     model = Profile
     template_name = "profile_create.html"
     form_class = ProfileForm
-    success_url = reverse_lazy("home")
+    
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -114,12 +140,12 @@ class ProfileEdit(UpdateView):
     model = Profile
     template_name = "profile_edit.html"
     form_class = ProfileForm
-    success_url = reverse_lazy("home")
+    
 
 
 class PostList(ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    queryset = Post.objects.order_by("-created_on")
     template_name = "blog.html"
     paginate_by = 6
 
@@ -137,7 +163,7 @@ class Home(TemplateView):
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("created_on")
         liked = False
@@ -158,7 +184,7 @@ class PostDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
 
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("created_on")
         liked = False
@@ -198,3 +224,17 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class CommentDelete(DeleteView):
+    model = Comment
+    template_name = "comment_delete.html"
+
+    def test_func(self):
+        comment = self.get_object()
+        return comment.name == self.request.user.username
+
+    def get_success_url(self):
+        post = self.object.post
+        return reverse_lazy('post_detail', kwargs={'slug': post.slug})
+    

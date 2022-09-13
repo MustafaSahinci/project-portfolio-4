@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
-
-
-STATUS = ((0, "Draft"), (1, "Published"))
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -29,6 +27,10 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user)
 
+    def get_absolute_url(self):
+        """Find url after user posts to the forum"""
+        return reverse('profile_detail', kwargs={'pk': self.pk})
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -41,7 +43,6 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
     category = models.CharField(max_length=200, default='travel')
@@ -58,6 +59,10 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        """Find url after user posts to the forum"""
+        return reverse('post_detail', kwargs={'slug': self.slug})
 
 
 class Comment(models.Model):

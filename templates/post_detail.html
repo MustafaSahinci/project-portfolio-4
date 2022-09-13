@@ -89,6 +89,11 @@
                     </p>
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
+                    {% if user.is_authenticated  %}
+                    {% if user.username == comment.name %}
+                    <a href="{% url 'comment_delete' comment.id %}" aria-label="delete-comment">delete</a>
+                    {% endif %}
+                    {% endif %}
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}
