@@ -1,6 +1,7 @@
 from . import views
 from django.urls import path
-# url for the views and templates
+
+"""url for the views and templates"""
 urlpatterns = [
     path("post_create/", views.PostCreate.as_view(), name="post_create"),
     path("edit/<slug:slug>", views.PostEdit.as_view(), name="post_edit"),

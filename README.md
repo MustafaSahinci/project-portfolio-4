@@ -398,6 +398,8 @@ All python code tested with no errors
 
 ## 5.Bugs
 - On the profile create page, I only added code that allows users to see the page if they are authorized. However, this allowed other users who had already created a profile to access it as well. Then when they pressed create, an error appeared because this id has already an profile. Here, I added the code [% if user.profile.first_name %]. Users who already have a profile will not be able to access this page if this is true; instead, they will see you are not the right user.
+- When I created the dropdown for categories in the nav bar, it only appeared on the home page. It has been fixed after adding the navbar_context function to context_processors.py.
+- I created the header in base.html, but wanted a different header for post details. Two navbars are created in includes and included in each template separately.
 
 ### Remaining Bugs
 - No known errors remaining.
@@ -413,6 +415,7 @@ git add . OR git add "file name" - to stage the changes and get them ready for b
 git commit -m "Description of the update" - to save the change and commit the change to the local repo
 git push - to push all committed changes to the GitHub repo associated with the GitPod workspace
 - Project Deployment
+
 This project was deployed via Heroku by carrying out the following:
 
 - Create the gitpod repo from the template via the gitpod button in github.
