@@ -202,6 +202,28 @@ Delete your post?
 </details>
 
 <details>
+<summary>Comment CRUD</summary>
+<br>
+
+If you are not logged in, you can only read the comments. But if you are logged in you can create, read, update and detele your comment.
+
+Here you can create your comment
+
+![Comments](docs/comments.png)
+
+Here you can read your comments
+
+![Comments](docs/comments1.png)
+
+Here you can Update you comments
+
+![Comments](docs/comments2.png)
+
+Here you can Delete your comments and if you click cancel you get back to the post
+
+![Comments](docs/comments3.png)
+
+<details>
 <summary>Profile CRUD</summary>
 <br>
 
@@ -248,7 +270,7 @@ Register Page
 
 ### future features
 - Users can login with their social media accounts
-- delete the comment approval so users can chat easily with eachother
+- Add more features to profile page
 - Add more categories
 
 ## 3. Technologies used
@@ -288,26 +310,75 @@ The username and/or password you specified are not correct.
 and for register you can see these errors:
 
 The password is too similar to the username.
+
 This password is too short. It must contain at least 8 characters.
+
 This password is too common.
 
+if you click login on the nav bar you get to the login page, here it is required to fill in Username and Password 
 
 ![Test](docs/login-test.png)
 ![Test](docs/login-test1.png)
+
+if you click Register on the nav bar you get to the register page, here it is required to fill in Username and 2 x Password. for now email is optional 
+
 ![Test](docs/register-test.png)
 ![Test](docs/register-test1.png)
 ![Test](docs/register-test2.png)
+
+The first step is to go to the blog page or your profile page, which you can access from the nav bar or through the button on the home page. You can also click on your profile image and select show profile. On your profile page, you can only see your own posts. On the blog page, you must find your own posts. The edit link is located next to the counter of comments when you click on one of your posts. You will be taken to the post-edit page when you click this link. Only the title and content are required.  
+
 ![Test](docs/post-edit-test.png)
 ![Test](docs/post-edit-test1.png)
+
+First you must be logged in, then you can click create post on the nav bar. here it is required to fill in the title and content.
+
 ![Test](docs/post-create-test.png)
 ![Test](docs/post-create-test1.png)
+
+If you are not logged in you have no acces to this page.
+
 ![Test](docs/post-create-test2.png)
+
+If you are not logged in you have no acces to this page.
+
 ![Test](docs/post-delete-test.png)
+
+if you are not the right user you have no acces to this page.
+
 ![Test](docs/post-delete-test1.png)
+
+If you are not logged in you have no acces to this page.
+
 ![Test](docs/profile-edit-test.png)
+
+if you are not the right user you have no acces to this page.
+
 ![Test](docs/profile-edit-test1.png)
+
+If you are not logged in you have no acces to this page.
+
 ![Test](docs/profile-create-test.png)
+
+if you are not the right user you have no acces to this page.
+
 ![Test](docs/profile-create-test1.png)
+
+If you are not logged in you have no acces to this page.
+
+![Test](docs/comment-edit-test.png)
+
+if you are not the right user you have no acces to this page.
+
+![Test](docs/comment-edit-test1.png)
+
+If you are not logged in you have no acces to this page.
+
+![Test](docs/comment-delete-test.png)
+
+if you are not the right user you have no acces to this page.
+
+![Test](docs/comment-delete-test1.png)
 </details>
 <br>
 
