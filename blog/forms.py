@@ -2,7 +2,7 @@ from django_summernote.widgets import SummernoteInplaceWidget, SummernoteWidget
 from django import forms
 from .models import Comment, Post, Category, Profile
 
-
+"""add created categorys to the list"""
 choices = Category.objects.all().values_list('name', 'name')
 choice_list = []
 for item in choices:
@@ -10,6 +10,7 @@ for item in choices:
 
 
 class CommentForm(forms.ModelForm):
+    """creates the comment form on post details and comment edit"""
     class Meta:
         model = Comment
         fields = ('body',)
@@ -19,6 +20,7 @@ class CommentForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
+    """creates the Profile form on Profile create page"""
     class Meta:
         model = Profile
         fields = ('first_name', 'last_name', 'profile_image', 'bio',
@@ -38,6 +40,7 @@ class ProfileForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
+    """Creates the post form for post create and post edit"""
     class Meta:
         model = Post
         fields = ('title', 'excerpt', 'category', 'featured_image', 'content')

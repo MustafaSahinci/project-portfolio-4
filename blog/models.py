@@ -27,8 +27,9 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user)
 
+   
     def get_absolute_url(self):
-        """Find url after user posts to the forum"""
+        """redirect to profile page after edit profile"""
         return reverse('profile_detail', kwargs={'pk': self.pk})
 
 
@@ -60,8 +61,9 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
+    
     def get_absolute_url(self):
-        """Find url after user posts to the forum"""
+        """redirect to post detail page after create or edit post"""
         return reverse('post_detail', kwargs={'slug': self.slug})
 
 

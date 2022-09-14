@@ -16,26 +16,8 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 
 
-# def post_create(request):
-
-#     post_form = PostForm(request.POST or None, request.FILES or None)
-#     context = {
-#         'post_form': post_form,
-#     }
-
-#     if request.method == "POST":
-#         post_form = PostForm(request.POST, request.FILES)
-#         if post_form.is_valid():
-#             post_form = post_form.save(commit=False)
-#             post_form.author = request.user
-#             post_form.status = 1
-#             post_form.save()
-#             return redirect('blog')
-#     else:
-#         post_form = PostForm()
-#     return render(request, 'post_create.html', context)
-
 class PostCreate(CreateView):
+    """Create the view for Creating a post"""
     model = Post
     template_name = "post_create.html"
     form_class = PostForm
@@ -47,6 +29,7 @@ class PostCreate(CreateView):
 
 
 class PostEdit(UpdateView):
+    """create the view for Updating the post"""
     model = Post
     template_name = "post_edit.html"
     form_class = PostForm
@@ -57,48 +40,18 @@ class PostEdit(UpdateView):
         return super().form_valid(form)
 
 
-# def post_edit(request, slug):
-
-#     post = get_object_or_404(Post, slug=slug)
-#     post_form = PostForm(request.POST or None, instance=post)
-#     context = {
-#         "post_form": post_form,
-#         "post": post
-#     }
-#     if request.method == "POST":
-#         post_form = PostForm(request.POST, request.FILES, instance=post)
-#         if post_form.is_valid():
-#             post = post_form.save(commit=False)
-#             post.author = request.user
-#             post.save()
-#             return redirect('blog')
-#     else:
-#         post_form = PostForm(instance=post)
-#     return render(request, "post_edit.html", context)
-
-
 class PostDelete(DeleteView):
+    """Create the view for deleting the post"""
     model = Post
     template_name = "post_delete.html"
     success_url = reverse_lazy("blog")
 
-# def post_delete(request, slug):
-
-#     post = get_object_or_404(Post, slug=slug)
-#     context = {
-#         "post": post
-#     }
-#     if request.method == "POST":
-#         post.delete()
-#         messages.success(request, "Post successfully deleted!")
-#         return redirect('blog')
-#     return render(request, "post_delete.html", context)
-
 
 def categories(request, cats):
-
+    """create the view for the categories"""
     post_category = Post.objects.filter(
         category=cats).order_by("-created_on")
+    """Paginate by 6 for function view"""
     paginator = Paginator(post_category, 6)
     page = request.GET.get('page')
     try:
@@ -112,10 +65,12 @@ def categories(request, cats):
 
 
 class ProfileDetails(DetailView):
+    """Create the view for profile details"""
     model = Profile
     template_name = "profile_detail.html"
 
     def get_context_data(self, **kwargs):
+        """Get user posts and user id"""
         context = super().get_context_data(**kwargs)
         user_posts = Post.objects.filter(
             author=self.kwargs["pk"]).order_by("-created_on")
@@ -126,16 +81,19 @@ class ProfileDetails(DetailView):
 
 
 class ProfileCreate(CreateView):
+    """"Create the view for creating a profile"""
     model = Profile
     template_name = "profile_create.html"
     form_class = ProfileForm
     
     def form_valid(self, form):
+        """Function to set signed in user as user of form to profile"""
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
 class ProfileEdit(UpdateView):
+    """Create the view for editing profile"""
     model = Profile
     template_name = "profile_edit.html"
     form_class = ProfileForm
@@ -143,6 +101,7 @@ class ProfileEdit(UpdateView):
 
 
 class PostList(ListView):
+    """Create the view for all posts paginated by 6"""
     model = Post
     queryset = Post.objects.order_by("-created_on")
     template_name = "blog.html"
@@ -150,9 +109,11 @@ class PostList(ListView):
 
 
 class Home(TemplateView):
+    """Create the view for home page"""
     template_name = "index.html"
 
     def get_context_data(self, *args, **kwargs):
+        """Get the categories for the dropdown in the nav bar"""
         cat_menu = Category.objects.all
         context = super(Home, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = cat_menu
@@ -160,7 +121,7 @@ class Home(TemplateView):
 
 
 class PostDetail(View):
-
+    """"create the view for the post details"""
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
@@ -214,7 +175,7 @@ class PostDetail(View):
 
 
 class PostLike(View):
-
+    """Create the view for clicking like on the post details"""
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -226,6 +187,7 @@ class PostLike(View):
 
 
 class CommentDelete(DeleteView):
+    """Create the view for deleting comments"""
     model = Comment
     template_name = "comment_delete.html"
 
@@ -234,6 +196,7 @@ class CommentDelete(DeleteView):
         return comment.name == self.request.user.username
 
     def get_success_url(self):
+        """reverse to post_detail after deleting"""
         post = self.object.post
         return reverse_lazy('post_detail', kwargs={'slug': post.slug})
 
@@ -248,6 +211,7 @@ class CommentEdit(UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
+        """reverse to post_detail after Updating"""
         post = self.object.post
         return reverse_lazy('post_detail', kwargs={'slug': post.slug})
     
