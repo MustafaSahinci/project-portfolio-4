@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, Profile
 
 
 class TestViews(TestCase):
@@ -11,9 +11,9 @@ class TestViews(TestCase):
             )
         self.post = Post.objects.create(title='Test', author=test_user)
         self.comment = Comment.objects.create(
-            body='Test Comment', post=self.post
+            body='Test-Comment', post=self.post
             )
-        self.category = Category.objects.create(name='Test Category')
+        self.category = Category.objects.create(name='Test-Category')
         self.client.login(username="testuser", password="12345")
 
     def test_get_home_page(self):
@@ -26,27 +26,23 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_create.html')
 
-    # def test_get_post_edit_page(self):
-    #     response = self.client.get('/post_edit/')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'post_edit.html')
+    def test_get_post_edit_page(self):
+        response = self.client.get('/edit/test')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post_edit.html')
 
-    # def test_get_post_delete_page(self):
-    #     response = self.client.get('/post_delete/')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'post_delete.html')
-
-    # def test_get_categories_page(self):
-    #     response = self.client.get('/categories/')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'categories.html')
-
-    # def test_get_post_detail_page(self):
-    #     response = self.client.get('/post_detail/')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'post_detail.html')
+    def test_get_post_delete_page(self):
+        response = self.client.get('/delete/test')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post_delete.html')
+        
+    def test_get_categories_page(self):
+        response = self.client.get('/category/test-category')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'categories.html')
 
     def test_get_post_list_page(self):
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog.html')
+    

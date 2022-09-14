@@ -14,7 +14,7 @@ urlpatterns = [
          name="profile_create"),
     path("blog/", views.PostList.as_view(), name="blog"),
     path("", views.Home.as_view(), name="home"),
-    path("<slug:slug>/", views.PostDetail.as_view(), name="post_detail"),
+    path("post/<slug:slug>", views.PostDetail.as_view(), name="post_detail"),
     path("like/<slug:slug>", views.PostLike.as_view(), name="post_like"),
     path("<int:pk>/comment_delete", views.CommentDelete.as_view(),
          name="comment_delete"),
