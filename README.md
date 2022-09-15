@@ -222,6 +222,7 @@ Here you can Update you comments
 Here you can Delete your comments and if you click cancel you get back to the post
 
 ![Comments](docs/comments3.png)
+</details>
 
 <details>
 <summary>Profile CRUD</summary>
@@ -267,6 +268,7 @@ Register Page
 
 ![Register](docs/register.png)
 </details>
+<br>
 
 ### future features
 - Users can login with their social media accounts
@@ -380,6 +382,7 @@ if you are not the right user you have no acces to this page.
 
 ![Test](docs/comment-delete-test1.png)
 </details>
+
 <br>
 
 ### W3C Markup Validation Service

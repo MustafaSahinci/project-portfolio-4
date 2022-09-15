@@ -18,12 +18,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-{% load static %}
-
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
             {% if user.is_authenticated %}
@@ -97,19 +94,6 @@
             </div>
         </div>
     </nav>
-    <!-- allert message -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}

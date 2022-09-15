@@ -15,40 +15,39 @@ class TestViews(TestCase):
             )
         self.category = Category.objects.create(name='Test-Category')
         self.client.login(username="testuser", password="12345")
-    
-    """test home page """
+
     def test_get_home_page(self):
+        """test home page """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-    
-    """test post create page""" 
+
     def test_get_post_create_page(self):
+        """test post create page"""
         response = self.client.get('/post_create/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_create.html')
-    
-    """test post edit page"""
+
     def test_get_post_edit_page(self):
+        """test post edit page"""
         response = self.client.get('/edit/test')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_edit.html')
-    
-    """test post delete page"""
+
     def test_get_post_delete_page(self):
+        """test post delete page"""
         response = self.client.get('/delete/test')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_delete.html')
 
-    """test category page"""    
     def test_get_categories_page(self):
+        """test category page"""
         response = self.client.get('/category/test-category')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'categories.html')
 
-    """"test blog page""""
     def test_get_post_list_page(self):
+        """"test blog page""""
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog.html')
-    

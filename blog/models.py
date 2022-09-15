@@ -6,6 +6,7 @@ from django.urls import reverse
 
 
 class Category(models.Model):
+    """Model for the categories"""
     name = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
@@ -13,6 +14,7 @@ class Category(models.Model):
 
 
 class Profile(models.Model):
+    """Model for the Profile's"""
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField()
     first_name = models.CharField(max_length=200, default="Osman")
@@ -27,13 +29,13 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user)
 
-   
     def get_absolute_url(self):
         """redirect to profile page after edit profile"""
         return reverse('profile_detail', kwargs={'pk': self.pk})
 
 
 class Post(models.Model):
+    """"Model for the posts"""
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -61,13 +63,13 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
-    
     def get_absolute_url(self):
         """redirect to post detail page after create or edit post"""
         return reverse('post_detail', kwargs={'slug': self.slug})
 
 
 class Comment(models.Model):
+    """Model for the comments"""
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name="comments")
     name = models.CharField(max_length=80)

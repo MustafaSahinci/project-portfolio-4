@@ -21,7 +21,7 @@ class PostCreate(CreateView):
     model = Post
     template_name = "post_create.html"
     form_class = PostForm
-    
+
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
         form.instance.author = self.request.user
@@ -51,6 +51,7 @@ def categories(request, cats):
     """create the view for the categories"""
     post_category = Post.objects.filter(
         category=cats).order_by("-created_on")
+
     """Paginate by 6 for function view"""
     paginator = Paginator(post_category, 6)
     page = request.GET.get('page')
@@ -85,7 +86,7 @@ class ProfileCreate(CreateView):
     model = Profile
     template_name = "profile_create.html"
     form_class = ProfileForm
-    
+
     def form_valid(self, form):
         """Function to set signed in user as user of form to profile"""
         form.instance.user = self.request.user
@@ -97,7 +98,6 @@ class ProfileEdit(UpdateView):
     model = Profile
     template_name = "profile_edit.html"
     form_class = ProfileForm
-    
 
 
 class PostList(ListView):
@@ -143,7 +143,6 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by("created_on")
@@ -214,4 +213,3 @@ class CommentEdit(UpdateView):
         """reverse to post_detail after Updating"""
         post = self.object.post
         return reverse_lazy('post_detail', kwargs={'slug': post.slug})
-    
