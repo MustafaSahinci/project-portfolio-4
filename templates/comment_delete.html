@@ -4,29 +4,31 @@
 {% include "includes/header.html" %}
 
 {% if user.is_authenticated %}
-    {% if user.username == comment.name %}
-        <div class="section-headline text-center">
-        <h1>Delete Comment</h1>
-      </div>
-        <center>
-            <h3>Delete: {{ comment.body }}</h3>
-            <form action="" method=POST>
-                {% csrf_token %}
-                <br>
-                <p>Are you sure?</p>
-                <input class="btn btn-primary btn-large bg-red" type="submit" value="Delete">
-                <a class="btn btn-primary btn-large bg-sky" href="{%  url 'post_detail' comment.post.slug  %}">Cancel</a>
-            </form>
-        </center>
+{% if user.username == comment.name %}
+<div class="section-headline text-center">
+    <h1>Delete Comment</h1>
+</div>
+<center>
+    <div class="text-break">
+        <h3>Delete: {{ comment.body }}</h3>
+    </div>
+    <form action="" method=POST>
+        {% csrf_token %}
         <br>
-    {% else %}
-    <center>
-        <h1>You are not the right user</h1 </center>
-        <br>    
-    {% endif %}
+        <p>Are you sure?</p>
+        <input class="btn btn-primary btn-large bg-red" type="submit" value="Delete">
+        <a class="btn btn-primary btn-large bg-sky" href="{%  url 'post_detail' comment.post.slug  %}">Cancel</a>
+    </form>
+</center>
+<br>
 {% else %}
 <center>
-    <h1>You are not Logged in</h1 </center>
+    <h1>You are not the right user</h1 </center>
     <br>
     {% endif %}
+    {% else %}
+    <center>
+        <h1>You are not Logged in</h1 </center>
+        <br>
+        {% endif %}
 {%endblock%}

@@ -27,20 +27,23 @@
             <ul class="nav-padding nav-item dropdown">
                 {% if user.profile.id %}
                 {% if "placeholder" in user.profile.profile_image.url %}
-                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="rounded-circle" alt="cute image with text on it"
-                    src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
+                        src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
                 </a>
                 {% else %}
-                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="rounded-circle" alt="image uploaded from user"
-                    src="{{ user.profile.profile_image.url }}">
+                        src="{{ user.profile.profile_image.url }}">
                 </a>
                 {% endif %}
                 {% else %}
-                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="rounded-circle" alt="cute image with text on it"
-                    src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
+                        src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg">
                 </a>
                 {% endif %}
                 <li class="dropdown-menu">
@@ -53,32 +56,39 @@
                 </li>
             </ul>
             {% endif %}
-            <ul class="nav-item nav-padding"><li><a class="navbar-brand" href="{% url 'home' %}">Travel</a></li></ul>         
-            <ul class="nav-padding"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button></ul>
+            <ul class="nav-item nav-padding">
+                <li><a class="navbar-brand" href="{% url 'home' %}">Travel</a></li>
+            </ul>
+            <ul class="nav-padding"><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button></ul>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     {% if user.id == 1 %}
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'admin:index' %}">Admin Page</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'admin:index' %}">Admin
+                            Page</a></li>
                     {% endif %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'home' %}">Home</a></li>
                     {% if cat_menu %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="{% url 'blog' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Blog
+                        <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="{% url 'blog' %}" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Blog
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'blog'%}">Blog</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             {% for item in cat_menu %}
                             <li><a class="dropdown-item" href="{% url 'categories' item %}">{{ item }}</a></li>
                             {% endfor %}
                         </ul>
-                      </li>
-                      {% endif %}
+                    </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'post_create' %}">Create
                             Post</a></li>

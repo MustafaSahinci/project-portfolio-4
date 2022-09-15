@@ -8,24 +8,24 @@
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
-                    <h1 class="text-center">{{ post.title }}</h1>
-                    <h2 class="text-center"> Post Created By: {{ post.author }} 
-                        {% if post.author.profile.id %}
-                        {% if "placeholder" in post.author.profile.profile_image.url %}
-                        <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="35px" width="35px" class="rounded-circle"
-                        src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg"></a>
-                        {% else %}
-                        <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="40px" width="40px" class="rounded-circle"
-                        src="{{ post.author.profile.profile_image.url }}"></a>
-                        {% endif %}
-                        {% endif %}
-                    </h2>
-                    <br>
+                <h1 class="text-center">{{ post.title }}</h1>
+                <h2 class="text-center"> Post Created By: {{ post.author }}
+                    {% if post.author.profile.id %}
+                    {% if "placeholder" in post.author.profile.profile_image.url %}
+                    <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="35px" width="35px"
+                            class="rounded-circle"
+                            src="https://sd.keepcalms.com/i-w600/no-profile-pic-but-trust-me-i-m-cute.jpg"></a>
+                    {% else %}
+                    <a href="{% url 'profile_detail' post.author.profile.id %}"><img height="40px" width="40px"
+                            class="rounded-circle" src="{{ post.author.profile.profile_image.url }}"></a>
+                    {% endif %}
+                    {% endif %}
+                </h2>
+                <br>
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
-
                     <div class="col-3">
                         <strong>
                             {% if user.is_authenticated %}
@@ -80,18 +80,19 @@
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold comment-name">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        <a class="post-link" href="{% url 'profile_detail' post.author.profile.id %}">{{ comment.name }}</a>
+                        {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }} wrote:
-                        </span> 
+                        </span>
                     </p>
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                     {% if user.is_authenticated  %}
                     {% if user.username == comment.name %}
                     <a class="post-link" href="{% url 'comment_edit' comment.id %}" aria-label="delete-comment">Edit</a>
-                    <a class="post-link" href="{% url 'comment_delete' comment.id %}" aria-label="delete-comment">delete</a>
+                    <a class="post-link" href="{% url 'comment_delete' comment.id %}"
+                        aria-label="delete-comment">delete</a>
                     {% endif %}
                     {% endif %}
                     <hr>

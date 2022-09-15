@@ -29,7 +29,8 @@
                             </div>
                             <a href="{% url 'post_detail' post.slug  %}" class="post-title">
                                 <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">Author: {{ post.author }} - {{ post.excerpt }} - {{ post.category }}</p>
+                                <p class="card-text">Author: {{ post.author }} - {{ post.excerpt }} -
+                                    {{ post.category }}</p>
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
@@ -50,10 +51,12 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if post_list.has_previous %}
-            <li><a href="?page={{ post_list.previous_page_number }}" class="btn btn-primary btn-large bg-sky">&laquo; PREV </a></li>
+            <li><a href="?page={{ post_list.previous_page_number }}" class="btn btn-primary btn-large bg-sky">&laquo;
+                    PREV </a></li>
             {% endif %}
             {% if post_list.has_next %}
-            <li><a href="?page={{ post_list.next_page_number }}" class="btn btn-primary btn-large bg-sky"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ post_list.next_page_number }}" class="btn btn-primary btn-large bg-sky"> NEXT
+                    &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>

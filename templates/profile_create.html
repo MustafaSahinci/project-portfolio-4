@@ -10,25 +10,25 @@
     <h1>You are not the right user</h1 </center>
     <br>
     {% else %}
-<div class="section-headline text-center">
-    <h1>Create Your Profile</h1>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            <div class="form-group">
-                <form action="" method=POST enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <br>
-                    <input class="btn btn-primary btn-large bg-sky" type="submit" value="Create">
-                </form>
+    <div class="section-headline text-center">
+        <h1>Create Your Profile</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="form-group">
+                    <form action="" method=POST enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <br>
+                        <input class="btn btn-primary btn-large bg-sky" type="submit" value="Create">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br>
-{% endif %}
+    <br>
+    {% endif %}
     {% else %}
     <center>
         <h1>You are not Logged in</h1 </center>
