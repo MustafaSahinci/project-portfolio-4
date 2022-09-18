@@ -11,9 +11,9 @@ for the live website click
 
 ## 1. User Experience (UX)
 
-Unregistered users can read the posts from the different categories and look at the profile from other users.
+Unregistered users can read the posts from the different categories and look at the profile of other users.
 
-Registered users can create, edit and delete their own posts. They can also comment and like other people's posts. The users can also create and edit their own profile.
+Registered users can create, read, update and delete their posts and commments. They can also comment and like other people's posts. The users can also create and edit their profile.
 
 ### First Time Visitor Goals
 - as a first time visitor, I would like to see a clear home page
@@ -26,6 +26,7 @@ Registered users can create, edit and delete their own posts. They can also comm
 - As a returning visitor, I would like to login.
 - As a returning visitor, I would like to like posts. 
 - As a returning visitor, I would like to comment on posts.
+- As a returning visitor, I would like to create, read, edit and delete my own comments.
 - As a returning visitor, I would like to create, read, edit and delete my own posts.
 - As a returning visitor, I would like to create and edit my own profile
 - As a returning visitor, I would like to see al my own post in my profile page
@@ -49,7 +50,7 @@ For the scope of this project the following key points were determined.
 - Use bootstrap to make the site responsive.
 - Allow the user to create an account so that they can create their own post and profile.
 - Allow logged in users add comments so they can communicate with each other
-- Allow users to Crud(Create, Read, Update and Delete) their posts and profile.
+- Allow users to Crud(Create, Read, Update and Delete) their posts, comment and profile.
 - The website should be easy to navigate and everything should be clear
 
 ### Site map
